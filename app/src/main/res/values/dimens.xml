@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="d_0">0dp</dimen>
+    <dimen name="d_8">8dp</dimen>
+    <dimen name="d_16">16dp</dimen>
+    <dimen name="d_24">24dp</dimen>
+    <dimen name="d_48">48dp</dimen>
+    <dimen name="d_56">56dp</dimen>
+    <dimen name="dt_16">16sp</dimen>
+</resources>

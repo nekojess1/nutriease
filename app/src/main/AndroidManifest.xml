@@ -8,7 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tcc">
         <activity
-            android:name=".MainActivity"
+            android:name="org.nekojess.nutriease.ui.onboarding.OnboardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

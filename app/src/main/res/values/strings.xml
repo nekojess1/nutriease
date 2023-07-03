@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">tcc</string>
+    <string name="app_name">nutriease</string>
+    <string name="onboarding_first_frame_title">Acompanhe seus pacientes</string>
+    <string name="onboarding_first_frame_description">Acompanhe o progresso dos seus pacientes de perto, fornecendo suporte contínuo e personalizado</string>
+    <string name="onboarding_second_frame_title">Crie dietas rapidamente </string>
+    <string name="onboarding_second_frame_description">Economize tempo sem comprometer a qualidade: geração de dietas eficientes e precisas em instantes</string>
+    <string name="onboarding_third_frame_title">Simples de usar</string>
 </resources>

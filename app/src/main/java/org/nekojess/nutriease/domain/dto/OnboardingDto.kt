@@ -1,4 +1,4 @@
-package org.nekojess.nutriease.domain
+package org.nekojess.nutriease.domain.dto
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -10,3 +10,4 @@ data class OnboardingDto (
     val description: String = EMPTY_STRING,
     val imageId: Int?
 ): Parcelable
+

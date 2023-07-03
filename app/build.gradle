@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.nekojess.tcc"
+        applicationId "org.nekojess.nutriease"
         minSdk 21
         targetSdk 32
         versionCode 1

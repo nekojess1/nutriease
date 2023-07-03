@@ -1,4 +1,4 @@
-package org.nekojess.tcc
+package org.nekojess.nutriease
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("org.nekojess.tcc", appContext.packageName)
+        assertEquals("org.nekojess.nutriease", appContext.packageName)
     }
 }

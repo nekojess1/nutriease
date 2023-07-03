@@ -3,8 +3,8 @@ package org.nekojess.nutriease.ui.onboarding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.nekojess.nutriease.domain.dto.OnboardingDto
-import org.nekojess.tcc.R
-import org.nekojess.tcc.databinding.ActivityOnboardingBinding
+import org.nekojess.nutriease.R
+import org.nekojess.nutriease.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
 

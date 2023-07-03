@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.nekojess.nutriease.domain.dto.OnboardingDto
-import org.nekojess.tcc.databinding.ItemPageBinding
+import org.nekojess.nutriease.databinding.ItemPageBinding
 
 class OnboardingAdapter(private var data: List<OnboardingDto>) :
     RecyclerView.Adapter<OnboardingAdapter.Pager2ViewHolder>() {

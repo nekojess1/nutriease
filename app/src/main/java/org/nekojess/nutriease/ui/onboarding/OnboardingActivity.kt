@@ -1,10 +1,12 @@
 package org.nekojess.nutriease.ui.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import org.nekojess.nutriease.domain.dto.OnboardingDto
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityOnboardingBinding
+import org.nekojess.nutriease.domain.dto.OnboardingDto
+import org.nekojess.nutriease.ui.login.LoginActivity
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -37,7 +39,13 @@ class OnboardingActivity : AppCompatActivity() {
         ),
         OnboardingDto(
             getString(R.string.onboarding_third_frame_title),
-            imageId = R.drawable.ic_onboarding_woman
+            imageId = R.drawable.ic_onboarding_woman,
+            onClickListener = { openLoginActivity() }
         )
     )
+
+    private fun openLoginActivity() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
+    }
 }

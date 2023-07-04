@@ -2,23 +2,42 @@ package org.nekojess.nutriease.ui.onboarding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import org.nekojess.nutriease.domain.dto.OnboardingDto
 import org.nekojess.nutriease.databinding.ItemPageBinding
+import org.nekojess.nutriease.domain.dto.OnboardingDto
 
 class OnboardingAdapter(private var data: List<OnboardingDto>) :
     RecyclerView.Adapter<OnboardingAdapter.Pager2ViewHolder>() {
 
     inner class Pager2ViewHolder(binding: ItemPageBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val title = binding.itemPageTitle
-        private val description = binding.itemPageDescription
-        private val image = binding.itemPageImage
+        private val tvTitle = binding.itemPageTitle
+        private val tvDescription = binding.itemPageDescription
+        private val ivIllustration = binding.itemPageImage
+        private val btnContinue = binding.itemPageButton
 
         fun bind(data: OnboardingDto) {
-            title.text = data.title
-            description.text = data.description
+            setTexts(data)
+            setImage(data)
+            setButton(data)
+        }
+
+        private fun setTexts(data: OnboardingDto) {
+            tvTitle.text = data.title
+            tvDescription.text = data.description
+            tvDescription.isVisible = data.description.isNotEmpty()
+        }
+
+        private fun setButton(data: OnboardingDto) {
+            data.onClickListener?.let { listener ->
+                btnContinue.isVisible = true
+                btnContinue.setOnClickListener { listener.invoke() }
+            }
+        }
+
+        private fun setImage(data: OnboardingDto) {
             data.imageId?.let {
-                image.setImageResource(it)
+                ivIllustration.setImageResource(it)
             }
         }
     }
@@ -42,6 +61,5 @@ class OnboardingAdapter(private var data: List<OnboardingDto>) :
     override fun getItemCount(): Int {
         return data.size
     }
-
 
 }

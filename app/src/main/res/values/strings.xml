@@ -5,4 +5,13 @@
     <string name="onboarding_second_frame_title">Crie dietas rapidamente </string>
     <string name="onboarding_second_frame_description">Economize tempo sem comprometer a qualidade: geração de dietas eficientes e precisas em instantes</string>
     <string name="onboarding_third_frame_title">Simples de usar</string>
+    <string name="onboarding_third_frame_button">vamos começar</string>
+
+
+    <string name="login_activity_title">Entre na sua conta</string>
+    <string name="login_activity_email">Email</string>
+    <string name="login_activity_password">Senha</string>
+    <string name="login_activity_forgot_password">Esqueceu sua senha?</string>
+    <string name="login_activity_enter">Entrar</string>
+    <string name="login_activity_sign_up">Ainda não possui conta? Cadastre-se</string>
 </resources>

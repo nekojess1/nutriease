@@ -6,5 +6,9 @@
     <dimen name="d_24">24dp</dimen>
     <dimen name="d_48">48dp</dimen>
     <dimen name="d_56">56dp</dimen>
+    <dimen name="d_64">64dp</dimen>
+
+    <dimen name="dt_14">14sp</dimen>
     <dimen name="dt_16">16sp</dimen>
+    <dimen name="dt_32">32sp</dimen>
 </resources>

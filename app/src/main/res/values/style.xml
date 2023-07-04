@@ -4,13 +4,25 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/black_70</item>
-        <item name="android:textSize">32sp</item>
+        <item name="android:textSize">@dimen/dt_32</item>
     </style>
 
     <style name="description">
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/black_50</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/dt_14</item>
     </style>
+
+    <style name="TextButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/dt_16</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="button">
+        <item name="android:padding">@dimen/d_16</item>
+        <item name="cornerRadius">@dimen/d_24</item>
+    </style>
+
 </resources>

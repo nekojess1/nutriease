@@ -9,6 +9,7 @@
 
 
     <string name="login_activity_title">Entre na sua conta</string>
+    <string name="login_activity_or">ou</string>
     <string name="login_activity_email">Email</string>
     <string name="login_activity_password">Senha</string>
     <string name="login_activity_forgot_password">Esqueceu sua senha?</string>

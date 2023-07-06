@@ -9,6 +9,7 @@
     <TextView
         android:id="@+id/login_activity_title"
         style="@style/title"
+        android:textAlignment="viewStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/d_24"

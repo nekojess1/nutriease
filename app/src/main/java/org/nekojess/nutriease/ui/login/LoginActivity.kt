@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import org.nekojess.nutriease.databinding.ActivityLoginBinding
 import org.nekojess.nutriease.ui.onboarding.OnboardingActivity
+import org.nekojess.nutriease.ui.signup.SignUpActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -21,8 +22,20 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setLoginButton()
+        setSignUpButton()
+    }
+
+    private fun setLoginButton() {
         binding.loginActivityEnterButton.setOnClickListener {
             login()
+        }
+    }
+
+    private fun setSignUpButton() {
+        binding.loginActivitySignUpButton.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
     }
 
@@ -31,11 +44,15 @@ class LoginActivity : AppCompatActivity() {
         val password = binding.loginActivityPasswordText.text.toString()
         mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                startActivity(Intent(this, OnboardingActivity::class.java))
-                finish()
+                openHome()
             }
         }?.addOnFailureListener { exception ->
             Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun openHome() {
+        startActivity(Intent(this, OnboardingActivity::class.java))
+        finish()
     }
 }

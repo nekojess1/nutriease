@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactInformationSignUpFragment"
-        android:name="org.nekojess.nutriease.ContactInformationSignUpFragment"
+        android:name="org.nekojess.nutriease.ui.signup.fragments.ContactInformationSignUpFragment"
         android:label="fragment_contact_information_sign_up"
         tools:layout="@layout/fragment_contact_information_sign_up">
         <action

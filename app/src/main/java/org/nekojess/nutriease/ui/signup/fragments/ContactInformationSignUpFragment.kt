@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.nekojess.nutriease.R
-import org.nekojess.nutriease.databinding.FragmentPersonalDataSignUpBinding
+import org.nekojess.nutriease.databinding.FragmentContactInformationSignUpBinding
 
 class ContactInformationSignUpFragment : Fragment() {
-    private val binding: FragmentPersonalDataSignUpBinding by lazy {
-        FragmentPersonalDataSignUpBinding.inflate(layoutInflater)
+    private val binding: FragmentContactInformationSignUpBinding by lazy {
+        FragmentContactInformationSignUpBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class ContactInformationSignUpFragment : Fragment() {
     }
 
     private fun configureContinueButton() {
-        binding.personalDataSignUpFragmentContinueButton.setOnClickListener {
+        binding.contactInformationSignUpFragmentContinueButton.setOnClickListener {
             Navigation.findNavController(binding.root)
                 .navigate(R.id.action_contactInformationSignUpFragment_to_selectPasswordSignUpFragment)
         }

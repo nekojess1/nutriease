@@ -35,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
     private fun setSignUpButton() {
         binding.loginActivitySignUpButton.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
-            finish()
         }
     }
 

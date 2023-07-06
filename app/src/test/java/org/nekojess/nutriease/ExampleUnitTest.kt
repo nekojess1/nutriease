@@ -1,4 +1,4 @@
-package org.nekojess.tcc
+package org.nekojess.nutriease
 
 import org.junit.Test
 

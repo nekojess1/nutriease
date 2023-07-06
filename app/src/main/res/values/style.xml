@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black_70</item>
+        <item name="android:textSize">@dimen/dt_32</item>
+    </style>
+
+    <style name="description">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black_50</item>
+        <item name="android:textSize">@dimen/dt_14</item>
+    </style>
+
+    <style name="TextButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/dt_16</item>
+        <item name="android:textColor">@color/black_50</item>
+    </style>
+
+    <style name="button">
+        <item name="android:padding">@dimen/d_16</item>
+        <item name="cornerRadius">@dimen/d_8</item>
+    </style>
+
+</resources>

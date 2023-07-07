@@ -6,12 +6,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import org.nekojess.nutriease.databinding.ActivityLoginBinding
-import org.nekojess.nutriease.ui.onboarding.OnboardingActivity
+import org.nekojess.nutriease.ui.home.HomeActivity
 import org.nekojess.nutriease.ui.signup.SignUpActivity
+import org.nekojess.nutriease.util.VerificationUtils.isValidEmail
+import org.nekojess.nutriease.util.VerificationUtils.isEmptyText
 
 
 class LoginActivity : AppCompatActivity() {
-    private val mAuth: FirebaseAuth? by lazy {
+    private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
 
@@ -21,14 +23,24 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        verifyIfUserIsConnected()
         setContentView(binding.root)
-        setLoginButton()
-        setSignUpButton()
+    }
+
+    private fun verifyIfUserIsConnected() {
+        if (auth.currentUser != null) {
+            openHome()
+        } else {
+            setLoginButton()
+            setSignUpButton()
+        }
     }
 
     private fun setLoginButton() {
         binding.loginActivityEnterButton.setOnClickListener {
-            login()
+            if (checkValidEmail() && checkValidPassword()) {
+                login()
+            }
         }
     }
 
@@ -38,20 +50,24 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkValidEmail() = binding.loginActivityEmail.isValidEmail()
+    private fun checkValidPassword() = binding.loginActivityPassword.isEmptyText()
+
     private fun login() {
         val email = binding.loginActivityEmailText.text.toString()
         val password = binding.loginActivityPasswordText.text.toString()
-        mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener { task ->
+
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 openHome()
             }
-        }?.addOnFailureListener { exception ->
+        }.addOnFailureListener { exception ->
             Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
         }
     }
 
     private fun openHome() {
-        startActivity(Intent(this, OnboardingActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
 }

@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentPersonalDataSignUpBinding
+import org.nekojess.nutriease.domain.dto.SignUpDto
 
 class PersonalDataSignUpFragment : Fragment() {
     private val binding: FragmentPersonalDataSignUpBinding by lazy {
         FragmentPersonalDataSignUpBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,11 +25,11 @@ class PersonalDataSignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         configureContinueButton()
-        setStatesDropDown()
+        setStatesList()
         return binding.root
     }
 
-    private fun setStatesDropDown() {
+    private fun setStatesList() {
         val ufs = resources.getStringArray(R.array.states_br)
         val adapter = ArrayAdapter(
             requireContext(),
@@ -39,9 +41,22 @@ class PersonalDataSignUpFragment : Fragment() {
 
     private fun configureContinueButton() {
         binding.personalDataSignUpFragmentContinueButton.setOnClickListener {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_personalDataSignUpFragment_to_contactInformationSignUpFragment)
+            val action =
+                PersonalDataSignUpFragmentDirections.actionPersonalDataSignUpFragmentToContactInformationSignUpFragment(
+                    getPersonalData()
+                )
+            Navigation.findNavController(binding.root).navigate(action)
         }
+    }
+
+    private fun getPersonalData(): SignUpDto {
+        return SignUpDto(
+            binding.personalDataSignUpFragmentNameText.text.toString(),
+            binding.personalDataSignUpFragmentBirthdayText.text.toString(),
+            binding.personalDataSignUpFragmentCrnText.text.toString(),
+            binding.personalDataSignUpFragmentUfText.text.toString(),
+            binding.personalDataSignUpFragmentCityText.text.toString()
+        )
     }
 
 }

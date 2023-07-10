@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import org.nekojess.nutriease.R
+import androidx.navigation.fragment.navArgs
 import org.nekojess.nutriease.databinding.FragmentContactInformationSignUpBinding
+import org.nekojess.nutriease.domain.dto.SignUpDto
 
 class ContactInformationSignUpFragment : Fragment() {
     private val binding: FragmentContactInformationSignUpBinding by lazy {
         FragmentContactInformationSignUpBinding.inflate(layoutInflater)
     }
+
+    private val args: ContactInformationSignUpFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,9 +27,24 @@ class ContactInformationSignUpFragment : Fragment() {
 
     private fun configureContinueButton() {
         binding.contactInformationSignUpFragmentContinueButton.setOnClickListener {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_contactInformationSignUpFragment_to_selectPasswordSignUpFragment)
+            val action =
+                ContactInformationSignUpFragmentDirections.actionContactInformationSignUpFragmentToSelectPasswordSignUpFragment(
+                    getPersonalData()
+                )
+            Navigation.findNavController(binding.root).navigate(action)
         }
     }
 
+    private fun getPersonalData(): SignUpDto {
+        val personalData = args.personalData
+        return SignUpDto(
+            personalData.name,
+            personalData.birthday,
+            personalData.crn,
+            personalData.uf,
+            personalData.city,
+            binding.contactInformationSignUpFragmentEmailText.text.toString(),
+            binding.contactInformationSignUpFragmentPhoneText.text.toString()
+        )
+    }
 }

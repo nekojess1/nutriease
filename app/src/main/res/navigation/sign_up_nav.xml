@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_personal_data_sign_up">
         <action
             android:id="@+id/action_personalDataSignUpFragment_to_contactInformationSignUpFragment"
-            app:destination="@id/contactInformationSignUpFragment" />
+            app:destination="@id/contactInformationSignUpFragment" >
+            <argument
+                android:name="personalData"
+                app:argType=".domain.dto.SignUpDto" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/contactInformationSignUpFragment"
@@ -21,11 +25,22 @@
         tools:layout="@layout/fragment_contact_information_sign_up">
         <action
             android:id="@+id/action_contactInformationSignUpFragment_to_selectPasswordSignUpFragment"
-            app:destination="@id/selectPasswordSignUpFragment" />
+            app:destination="@id/selectPasswordSignUpFragment">
+            <argument
+                android:name="personalData"
+                app:argType=".domain.dto.SignUpDto" />
+        </action>
+        <argument
+            android:name="personalData"
+            app:argType="org.nekojess.nutriease.domain.dto.SignUpDto" />
     </fragment>
     <fragment
         android:id="@+id/selectPasswordSignUpFragment"
         android:name="org.nekojess.nutriease.ui.signup.fragments.SelectPasswordSignUpFragment"
         android:label="fragment_select_password_sign_up"
-        tools:layout="@layout/fragment_select_password_sign_up" />
+        tools:layout="@layout/fragment_select_password_sign_up" >
+        <argument
+            android:name="personalData"
+            app:argType="org.nekojess.nutriease.domain.dto.SignUpDto" />
+    </fragment>
 </navigation>

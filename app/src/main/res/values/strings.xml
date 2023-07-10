@@ -32,6 +32,7 @@
     <string name="sign_up_activity_crn">CRN</string>
     <string name="sign_up_activity_contact_information">informações de contato</string>
     <string name="sign_up_activity_password">escolha sua senha</string>
+    <string name="sign_up_activity_password_information">segurança de senha</string>
 
 
     <string-array name="states_br">

@@ -25,7 +25,7 @@ class SelectPasswordSignUpFragment : Fragment() {
         FragmentSelectPasswordSignUpBinding.inflate(layoutInflater)
     }
 
-    private val firestore: FirebaseFirestore by lazy {
+    private val fireStore: FirebaseFirestore by lazy {
         Firebase.firestore
     }
 
@@ -53,7 +53,8 @@ class SelectPasswordSignUpFragment : Fragment() {
 
     private fun createUser() {
         val email = args.personalData.email
-        val password = binding.selectPasswordSignUpFragmentConfirmPasswordText.text.toString().hashPassword()
+        val password =
+            binding.selectPasswordSignUpFragmentConfirmPasswordText.text.toString().hashPassword()
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task: Task<AuthResult> ->
@@ -72,7 +73,7 @@ class SelectPasswordSignUpFragment : Fragment() {
 
         if (userId != null) {
             val personalData = args.personalData
-            firestore.collection("users")
+            fireStore.collection("users")
                 .document(userId)
                 .set(personalData)
                 .addOnSuccessListener {
@@ -99,10 +100,19 @@ class SelectPasswordSignUpFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
-                val password = s.toString()
-                binding.selectPasswordSignUpFragmentStrengthBar.verifyPasswordStrength(password)
+                val password = binding.selectPasswordSignUpFragmentPasswordText.text.toString()
+                val confirmPassword = s.toString()
+                binding.selectPasswordSignUpFragmentFinishButton.isEnabled =
+                    verifyPasswordCondition(password, confirmPassword)
             }
         })
+    }
+
+    private fun verifyPasswordCondition(password: String, confirmPassword: String): Boolean {
+        return binding.selectPasswordSignUpFragmentStrengthBar.checkPasswordConditions(
+            password,
+            confirmPassword
+        )
     }
 
     private fun configureFinishButton() {

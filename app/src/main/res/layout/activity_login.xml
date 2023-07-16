@@ -94,6 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/d_24"
         android:layout_marginBottom="@dimen/d_64"
+        android:layout_marginTop="@dimen/d_48"
         android:text="@string/onboarding_third_frame_button"
         app:layout_constraintBottom_toTopOf="@+id/login_activity_sign_up_button"
         app:layout_constraintTop_toBottomOf="@+id/login_activity_forgot_password" />

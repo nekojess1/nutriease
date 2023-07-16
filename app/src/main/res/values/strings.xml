@@ -32,8 +32,6 @@
     <string name="sign_up_activity_crn">CRN</string>
     <string name="sign_up_activity_contact_information">informações de contato</string>
     <string name="sign_up_activity_password">escolha sua senha</string>
-    <string name="sign_up_activity_password_information">segurança de senha</string>
-
 
     <string-array name="states_br">
         <item>AC</item>
@@ -64,5 +62,13 @@
         <item>SE</item>
         <item>TO</item>
     </string-array>
+
+    <!-- Strength Password -->
+    <string name="strength_password_information">a senha deve ter:</string>
+    <string name="strength_password_condition_1">A senha deve conter pelo menos 8 caracteres</string>
+    <string name="strength_password_condition_2">A senha deve conter ao menos uma letra minúscula e uma minúscula</string>
+    <string name="strength_password_condition_3">A senha deve conter pelo menos um número</string>
+    <string name="strength_password_condition_4">A senha deve conter pelo menos um caractere especial</string>
+    <string name="strength_password_condition_5">A senhas devem ser iguais</string>
 
 </resources>

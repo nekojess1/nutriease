@@ -21,6 +21,12 @@
         <item name="android:textSize">@dimen/dt_14</item>
     </style>
 
+    <style name="description_password">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black_50</item>
+        <item name="android:textSize">@dimen/dt_14</item>
+    </style>
+
     <style name="description2">
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>

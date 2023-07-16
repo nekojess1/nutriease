@@ -5,10 +5,10 @@ import com.google.android.material.textfield.TextInputLayout
 
 object VerificationUtils {
 
-    fun String.isEmail() = !Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    private fun String.isEmail() = !Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
     fun TextInputLayout.isValidEmail(): Boolean{
-        val email = this.editText?.text.toString()
+        val email = this.editText?.text.toString().trim()
         when {
             email.isEmpty() -> this.error = "Email não pode ser vazio"
             email.isEmail() -> this.error = "Email inválido"

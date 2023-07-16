@@ -18,6 +18,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import org.nekojess.nutriease.databinding.FragmentSelectPasswordSignUpBinding
 import org.nekojess.nutriease.ui.home.HomeActivity
+import org.nekojess.nutriease.util.StringUtils.hashPassword
 
 class SelectPasswordSignUpFragment : Fragment() {
     private val binding: FragmentSelectPasswordSignUpBinding by lazy {
@@ -52,7 +53,7 @@ class SelectPasswordSignUpFragment : Fragment() {
 
     private fun createUser() {
         val email = args.personalData.email
-        val password = binding.selectPasswordSignUpFragmentConfirmPasswordText.text.toString()
+        val password = binding.selectPasswordSignUpFragmentConfirmPasswordText.text.toString().hashPassword()
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task: Task<AuthResult> ->

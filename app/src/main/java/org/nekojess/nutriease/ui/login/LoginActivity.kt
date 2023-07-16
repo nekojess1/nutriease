@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import org.nekojess.nutriease.databinding.ActivityLoginBinding
 import org.nekojess.nutriease.ui.home.HomeActivity
 import org.nekojess.nutriease.ui.signup.SignUpActivity
+import org.nekojess.nutriease.util.StringUtils.hashPassword
 import org.nekojess.nutriease.util.VerificationUtils.isValidEmail
 import org.nekojess.nutriease.util.VerificationUtils.isEmptyText
 
@@ -38,10 +39,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setLoginButton() {
         binding.loginActivityEnterButton.setOnClickListener {
+            setButtonEnable(false)
             if (checkValidEmail() && checkValidPassword()) {
                 login()
+            } else {
+                setButtonEnable(true)
             }
         }
+    }
+
+    private fun setButtonEnable(isVisible: Boolean) {
+        binding.loginActivityEnterButton.isEnabled = isVisible
     }
 
     private fun setSignUpButton() {
@@ -54,8 +62,8 @@ class LoginActivity : AppCompatActivity() {
     private fun checkValidPassword() = binding.loginActivityPassword.isEmptyText()
 
     private fun login() {
-        val email = binding.loginActivityEmailText.text.toString()
-        val password = binding.loginActivityPasswordText.text.toString()
+        val email = binding.loginActivityEmailText.text.toString().trim()
+        val password = binding.loginActivityPasswordText.text.toString().hashPassword()
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -63,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }.addOnFailureListener { exception ->
             Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
+            setButtonEnable(true)
         }
     }
 

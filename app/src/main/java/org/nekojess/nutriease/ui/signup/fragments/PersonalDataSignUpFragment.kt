@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentPersonalDataSignUpBinding
 import org.nekojess.nutriease.domain.dto.SignUpDto
+import org.nekojess.nutriease.util.DateTextWatcher
 
 class PersonalDataSignUpFragment : Fragment() {
     private val binding: FragmentPersonalDataSignUpBinding by lazy {
@@ -26,7 +27,12 @@ class PersonalDataSignUpFragment : Fragment() {
     ): View {
         configureContinueButton()
         setStatesList()
+        setDateChangedListener()
         return binding.root
+    }
+
+    private fun setDateChangedListener() {
+        binding.personalDataSignUpFragmentBirthdayText.addTextChangedListener(DateTextWatcher())
     }
 
     private fun setStatesList() {

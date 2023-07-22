@@ -1,21 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/d_48"
+        android:layout_height="@dimen/d_48"
+        android:layout_marginStart="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        android:src="@drawable/jess_image"
+        app:civ_border_color="@color/pink_app"
+        app:civ_border_width="@dimen/d_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <TextView
+        style="@style/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_16"
+        android:layout_marginEnd="@dimen/d_24"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        tools:text="Olá, Jess" />
+
+    <TextView
+        android:id="@+id/activity_home_patient_title"
+        style="@style/title2"
+        android:layout_width="@dimen/d_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_24"
+        android:layout_marginTop="52dp"
+        android:text="@string/patients"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toStartOf="@+id/activity_home_patient_see_more_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_diet_card" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/activity_home_patient_diet_card"
+        android:layout_width="@dimen/d_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_48"
+        android:backgroundTint="@color/pink_app"
+        app:cardCornerRadius="@dimen/d_16"
+        app:cardElevation="@dimen/d_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/d_24">
+
+            <TextView
+                style="@style/title3"
+                android:layout_width="@dimen/d_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d_16"
+                android:layout_marginEnd="@dimen/d_8"
+                android:text="@string/create_new_diet"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/login_activity_create_diet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_activity_create_diet"
+                style="@style/buttonSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/d_16"
+                android:backgroundTint="@color/white"
+                android:text="@string/start_here"
+                android:textColor="@color/black_70"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/activity_home_patient_see_more_btn"
+        style="@style/buttonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/d_24"
+        android:text="@string/see_all"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_home_patient_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activity_home_patient_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_home_patient_list"
+        android:layout_width="@dimen/d_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_activity_enter_button"
+        style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/home_menu" />
-</RelativeLayout>
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        android:backgroundTint="@color/black_50"
+        android:text="@string/register_patient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_list" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import org.nekojess.nutriease.databinding.FragmentContactInformationSignUpBinding
-import org.nekojess.nutriease.domain.dto.SignUpDto
+import org.nekojess.nutriease.domain.dto.UserDto
 
 class ContactInformationSignUpFragment : Fragment() {
     private val binding: FragmentContactInformationSignUpBinding by lazy {
@@ -35,9 +35,9 @@ class ContactInformationSignUpFragment : Fragment() {
         }
     }
 
-    private fun getPersonalData(): SignUpDto {
+    private fun getPersonalData(): UserDto {
         val personalData = args.personalData
-        return SignUpDto(
+        return UserDto(
             personalData.name,
             personalData.birthday,
             personalData.crn,

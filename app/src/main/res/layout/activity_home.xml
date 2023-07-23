@@ -7,7 +7,7 @@
     tools:context=".ui.home.HomeActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/activity_home_user_image"
         android:layout_width="@dimen/d_48"
         android:layout_height="@dimen/d_48"
         android:layout_marginStart="@dimen/d_24"
@@ -19,14 +19,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/activity_home_user_name"
         style="@style/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/d_16"
         android:layout_marginEnd="@dimen/d_24"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
-        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_home_user_image"
+        app:layout_constraintStart_toEndOf="@+id/activity_home_user_image"
+        app:layout_constraintTop_toTopOf="@+id/activity_home_user_image"
         tools:text="Olá, Jess" />
 
     <TextView
@@ -53,7 +54,7 @@
         app:cardElevation="@dimen/d_8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image">
+        app:layout_constraintTop_toBottomOf="@+id/activity_home_user_image">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -115,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_title" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_activity_enter_button"
+        android:id="@+id/activity_home_register_patient"
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

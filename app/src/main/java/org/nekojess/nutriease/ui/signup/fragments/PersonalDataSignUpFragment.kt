@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentPersonalDataSignUpBinding
-import org.nekojess.nutriease.domain.dto.SignUpDto
+import org.nekojess.nutriease.domain.dto.UserDto
 import org.nekojess.nutriease.util.DateTextWatcher
 
 class PersonalDataSignUpFragment : Fragment() {
@@ -55,8 +55,8 @@ class PersonalDataSignUpFragment : Fragment() {
         }
     }
 
-    private fun getPersonalData(): SignUpDto {
-        return SignUpDto(
+    private fun getPersonalData(): UserDto {
+        return UserDto(
             binding.personalDataSignUpFragmentNameText.text.toString(),
             binding.personalDataSignUpFragmentBirthdayText.text.toString(),
             binding.personalDataSignUpFragmentCrnText.text.toString(),

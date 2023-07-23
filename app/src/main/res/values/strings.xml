@@ -78,4 +78,6 @@
     <string name="register_patient">cadastrar paciente</string>
     <string name="patients">Pacientes</string>
 
+    <!-- Home -->
+    <string name="home_activity_user_name">Olá, <b>%s</b></string>
 </resources>

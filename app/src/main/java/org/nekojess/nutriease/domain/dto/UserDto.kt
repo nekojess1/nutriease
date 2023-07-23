@@ -6,26 +6,26 @@ import kotlinx.android.parcel.Parcelize
 import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 
 @Parcelize
-data class SignUpDto (
+data class UserDto (
     @get:PropertyName("name")
     @set:PropertyName("name")
-    var name: String,
+    var name: String = EMPTY_STRING,
 
     @get:PropertyName("birthday")
     @set:PropertyName("birthday")
-    var birthday: String,
+    var birthday: String = EMPTY_STRING,
 
     @get:PropertyName("crn")
     @set:PropertyName("crn")
-    var crn: String,
+    var crn: String = EMPTY_STRING,
 
     @get:PropertyName("uf")
     @set:PropertyName("uf")
-    var uf: String,
+    var uf: String = EMPTY_STRING,
 
     @get:PropertyName("city")
     @set:PropertyName("city")
-    var city: String,
+    var city: String = EMPTY_STRING,
 
     @get:PropertyName("email")
     @set:PropertyName("email")

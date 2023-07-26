@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "org.nekojess.nutriease"
-        minSdk 24
+        minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -56,4 +56,5 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.6.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 }

@@ -20,13 +20,16 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setViewModel()
+        binding.activityHomeShimmer.startShimmerAnimation()
     }
 
     private fun setViewModel() {
         viewModel.getUserData()
-        viewModel.userLiveData.observe(this) { usuario ->
+        viewModel.userLiveData.observe(this) { data ->
             binding.activityHomeUserName.text =
-                getString(R.string.home_activity_user_name, usuario.name).toHtml()
+                getString(R.string.home_activity_user_name, data.user?.name).toHtml()
+            binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+            binding.activityHomeShimmer.stopShimmerAnimation()
         }
     }
 

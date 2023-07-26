@@ -7,6 +7,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import org.nekojess.nutriease.domain.dto.HomeDto
+import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.domain.dto.UserDto
 
 class HomeViewModel : ViewModel() {
@@ -19,9 +21,9 @@ class HomeViewModel : ViewModel() {
         FirebaseAuth.getInstance()
     }
 
-    private val _userLiveData = MutableLiveData<UserDto>()
+    private val _userLiveData = MutableLiveData<HomeDto>()
 
-    val userLiveData: LiveData<UserDto>
+    val userLiveData: LiveData<HomeDto>
         get() = _userLiveData
 
     fun getUserData() {
@@ -30,12 +32,36 @@ class HomeViewModel : ViewModel() {
             fireStore.collection("users").document(userId).get()
                 .addOnSuccessListener { document ->
                     if (document != null && document.exists()) {
-                        _userLiveData.value = document.toObject(UserDto::class.java)
+                        val user = document.toObject(UserDto::class.java)
+                        getPatients(userId, user)
                     }
                 }
-                .addOnFailureListener { exception: Exception? ->
+                .addOnFailureListener {
 
                 }
         }
+    }
+
+    private fun getPatients(
+        userId: String,
+        user: UserDto?
+    ) {
+        fireStore.collection("users").document(userId).collection("patients").get()
+            .addOnSuccessListener { querySnapshot ->
+                val patientList = mutableListOf<PatientDto>()
+                for (document in querySnapshot.documents) {
+                    val patient = document.toObject(PatientDto::class.java)
+                    patient?.let {
+                        patientList.add(it)
+                    }
+                }
+                _userLiveData.value = HomeDto(
+                    user,
+                    patientList
+                )
+            }
+            .addOnFailureListener {
+
+            }
     }
 }

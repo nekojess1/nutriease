@@ -1,7 +1,7 @@
 package org.nekojess.nutriease.util
 
-import android.text.Html
 import android.text.Spanned
+import androidx.core.text.HtmlCompat
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -26,5 +26,5 @@ object StringUtils {
         return this
     }
 
-    fun String.toHtml(): Spanned = Html.fromHtml(this, Html.FROM_HTML_MODE_COMPACT)
+    fun String.toHtml(): Spanned = HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
 }

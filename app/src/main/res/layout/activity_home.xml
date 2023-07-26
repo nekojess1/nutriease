@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/activity_home_user_name"
-        style="@style/title2"
+        style="@style/title2_without_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/d_16"
@@ -108,8 +108,8 @@
         android:id="@+id/activity_home_patient_list"
         android:layout_width="@dimen/d_0"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/d_24"
         android:layout_marginTop="@dimen/d_24"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,6 +123,7 @@
         android:layout_marginHorizontal="@dimen/d_24"
         android:layout_marginTop="@dimen/d_24"
         android:backgroundTint="@color/black_50"
+        android:textAllCaps="false"
         android:text="@string/register_patient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

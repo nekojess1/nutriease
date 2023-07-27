@@ -1,6 +1,8 @@
 package org.nekojess.nutriease.ui.onboarding
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.nekojess.nutriease.R
@@ -14,10 +16,23 @@ class OnboardingActivity : AppCompatActivity() {
         ActivityOnboardingBinding.inflate(layoutInflater)
     }
 
+    private val sharedPreferences : SharedPreferences by lazy {
+        getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        verifyOnboardingIsComplete()
         setContentView(binding.root)
-        setViewPager()
+    }
+
+    private fun verifyOnboardingIsComplete() {
+        val onboardingCompleted = sharedPreferences.getBoolean("onboarding_completed", false)
+        if (!onboardingCompleted) {
+            setViewPager()
+        } else {
+            openLoginActivity()
+        }
     }
 
     private fun setViewPager() {
@@ -39,9 +54,18 @@ class OnboardingActivity : AppCompatActivity() {
         OnboardingDto(
             getString(R.string.onboarding_third_frame_title),
             imageId = R.drawable.ic_onboarding_woman,
-            onClickListener = { openLoginActivity() }
+            onClickListener = {
+                setContinueButtonClick()
+            }
         )
     )
+
+    private fun setContinueButtonClick() {
+        openLoginActivity()
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putBoolean("onboarding_completed", true)
+        editor.apply()
+    }
 
     private fun openLoginActivity() {
         startActivity(Intent(this, LoginActivity::class.java))

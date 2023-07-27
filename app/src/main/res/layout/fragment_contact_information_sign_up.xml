@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.signup.fragments.ContactInformationSignUpFragment">
+
+    <TextView
+        android:id="@+id/contact_information_sign_up_fragment_title"
+        style="@style/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_48"
+        android:text="@string/sign_up_activity_contact_information"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contact_information_sign_up_fragment_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_48"
+        android:hint="@string/email"
+        app:boxBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/contact_information_sign_up_fragment_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contact_information_sign_up_fragment_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contact_information_sign_up_fragment_phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        android:hint="@string/phone"
+        app:boxBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/contact_information_sign_up_fragment_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contact_information_sign_up_fragment_phone_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/contact_information_sign_up_fragment_continue_button"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginBottom="@dimen/d_48"
+        android:text="@string/sign_up_activity_continue"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">nutriease</string>
+
+    <!-- General -->
+    <string name="email">email</string>
+    <string name="phone">telefone</string>
+    <string name="name">nome</string>
+    <string name="password">senha</string>
+    <string name="confirm_password">confirmar senha</string>
+    <string name="uf">UF</string>
+    <string name="city">cidade</string>
+
+    <!-- Onboarding -->
     <string name="onboarding_first_frame_title">Acompanhe seus pacientes</string>
     <string name="onboarding_first_frame_description">Acompanhe o progresso dos seus pacientes de perto, fornecendo suporte contínuo e personalizado</string>
     <string name="onboarding_second_frame_title">Crie dietas rapidamente </string>
@@ -7,12 +18,57 @@
     <string name="onboarding_third_frame_title">Simples de usar</string>
     <string name="onboarding_third_frame_button">vamos começar</string>
 
-
+    <!-- Login -->
     <string name="login_activity_title">Entre na sua conta</string>
     <string name="login_activity_or">ou</string>
-    <string name="login_activity_email">Email</string>
-    <string name="login_activity_password">Senha</string>
     <string name="login_activity_forgot_password">Esqueceu sua senha?</string>
     <string name="login_activity_enter">Entrar</string>
     <string name="login_activity_sign_up">Ainda não possui conta? Cadastre-se</string>
+
+    <!-- SignUp -->
+    <string name="sign_up_activity_continue">continuar</string>
+    <string name="sign_up_activity_personal_data">dados pessoais</string>
+    <string name="sign_up_activity_birthday">data de nascimento</string>
+    <string name="sign_up_activity_crn">CRN</string>
+    <string name="sign_up_activity_contact_information">informações de contato</string>
+    <string name="sign_up_activity_password">escolha sua senha</string>
+
+    <string-array name="states_br">
+        <item>AC</item>
+        <item>AL</item>
+        <item>AP</item>
+        <item>AM</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MT</item>
+        <item>MS</item>
+        <item>MG</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PR</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RS</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>SC</item>
+        <item>SP</item>
+        <item>SE</item>
+        <item>TO</item>
+    </string-array>
+
+    <!-- Strength Password -->
+    <string name="strength_password_information">a senha deve ter:</string>
+    <string name="strength_password_condition_1">A senha deve conter pelo menos 8 caracteres</string>
+    <string name="strength_password_condition_2">A senha deve conter ao menos uma letra minúscula e uma minúscula</string>
+    <string name="strength_password_condition_3">A senha deve conter pelo menos um número</string>
+    <string name="strength_password_condition_4">A senha deve conter pelo menos um caractere especial</string>
+    <string name="strength_password_condition_5">A senhas devem ser iguais</string>
+
 </resources>

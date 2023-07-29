@@ -3,19 +3,18 @@ package org.nekojess.nutriease.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
+import org.nekojess.nutriease.data.PatientsRepository
+import org.nekojess.nutriease.data.UserRepository
 import org.nekojess.nutriease.domain.dto.HomeDto
-import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.domain.dto.UserDto
 
-class HomeViewModel : ViewModel() {
-
-    private val fireStore: FirebaseFirestore by lazy {
-        Firebase.firestore
-    }
+class HomeViewModel(
+    private val patientRepository: PatientsRepository,
+    private val userRepository: UserRepository
+) : ViewModel() {
 
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -27,45 +26,33 @@ class HomeViewModel : ViewModel() {
         get() = _userLiveData
 
     fun getUserData() {
-        val userId = auth.currentUser?.uid
-        if (userId != null) {
-            fireStore.collection("users").document(userId).get()
-                .addOnSuccessListener { document ->
-                    if (document != null && document.exists()) {
-                        val user = document.toObject(UserDto::class.java)
-                        getPatients(userId, user)
-                    }
-                }
-                .addOnFailureListener {
+        viewModelScope.launch {
+            val result = userRepository.getUserData()
+            result.onSuccess { userDto ->
+                getPatientList(userDto)
+            }
+            result.onFailure { exception ->
 
-                }
+            }
         }
     }
 
-    private fun getPatients(
-        userId: String,
-        user: UserDto?
-    ) {
-        fireStore.collection("users").document(userId).collection("patients").get()
-            .addOnSuccessListener { querySnapshot ->
-                val patientList = mutableListOf<PatientDto>()
-                for (document in querySnapshot.documents) {
-                    val patient = document.toObject(PatientDto::class.java)
-                    patient?.let {
-                        patientList.add(it)
-                    }
-                }
+    private fun getPatientList(user: UserDto) {
+        viewModelScope.launch {
+            val result = patientRepository.getPatientList()
+            result.onSuccess { patientList ->
                 _userLiveData.value = HomeDto(
                     user,
                     patientList
                 )
             }
-            .addOnFailureListener {
+            result.onFailure { exception ->
 
             }
+         }
     }
 
-    fun signOutUser(){
+    fun signOutUser() {
         auth.signOut()
     }
 }

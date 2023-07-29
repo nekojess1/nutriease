@@ -6,21 +6,20 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.navigation.NavigationView
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityHomeBinding
 import org.nekojess.nutriease.ui.login.LoginActivity
 import org.nekojess.nutriease.util.StringUtils.toHtml
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class HomeActivity : AppCompatActivity() {
     private val binding: ActivityHomeBinding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
     }
 
-    private val viewModel: HomeViewModel by lazy {
-        ViewModelProvider(this)[HomeViewModel::class.java]
-    }
+    private val viewModel: HomeViewModel by viewModel()
 
     private val drawerLayout: DrawerLayout by lazy {
         binding.drawerLayout

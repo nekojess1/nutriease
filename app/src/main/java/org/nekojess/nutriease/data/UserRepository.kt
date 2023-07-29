@@ -7,6 +7,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import org.nekojess.nutriease.domain.dto.LoginDto
 import org.nekojess.nutriease.domain.dto.UserDto
 import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 
@@ -36,6 +37,17 @@ class UserRepository {
             }
         } catch (exception: Exception) {
             Result.failure(exception)
+        }
+    }
+
+    suspend fun authUser(userLogin: LoginDto): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            try {
+                auth.signInWithEmailAndPassword(userLogin.email, userLogin.password).await()
+                Result.success(true)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
         }
     }
 

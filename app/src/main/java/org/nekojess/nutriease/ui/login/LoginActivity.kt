@@ -14,8 +14,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityLoginBinding
+import org.nekojess.nutriease.domain.dto.LoginDto
 import org.nekojess.nutriease.ui.home.HomeActivity
 import org.nekojess.nutriease.ui.signup.SignUpActivity
 import org.nekojess.nutriease.util.StringUtils.hashPassword
@@ -29,6 +31,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
 
     private val binding: ActivityLoginBinding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
+
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -114,14 +118,13 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         val email = binding.loginActivityEmailText.text.toString().trim()
         val password = binding.loginActivityPasswordText.text.toString().hashPassword()
-
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
+        viewModel.authUser(LoginDto(email, password))
+        viewModel.loginResultLiveData.observe(this) { loginResult ->
+            if (loginResult) {
                 openHome()
+            } else {
+                setButtonEnable(true)
             }
-        }.addOnFailureListener { exception ->
-            Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
-            setButtonEnable(true)
         }
     }
 

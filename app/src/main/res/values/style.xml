@@ -47,6 +47,12 @@
         <item name="android:textSize">@dimen/dt_16</item>
     </style>
 
+    <style name="menuItem">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black_50</item>
+        <item name="android:textSize">@dimen/dt_16</item>
+    </style>
+
     <style name="buttonText">
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
@@ -63,6 +69,13 @@
     <style name="button">
         <item name="android:padding">@dimen/d_16</item>
         <item name="cornerRadius">@dimen/d_8</item>
+    </style>
+
+    <style name="buttonOutline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:padding">@dimen/d_16</item>
+        <item name="cornerRadius">@dimen/d_8</item>
+        <item name="android:textAppearance">@style/description2</item>
+        <item name="strokeColor">@color/gray_50</item>
     </style>
 
     <style name="buttonSmall">

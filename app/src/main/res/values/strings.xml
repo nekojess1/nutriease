@@ -80,4 +80,5 @@
 
     <!-- Home -->
     <string name="home_activity_user_name">Olá, <b>%s</b></string>
+    <string name="profile">perfil</string>
 </resources>

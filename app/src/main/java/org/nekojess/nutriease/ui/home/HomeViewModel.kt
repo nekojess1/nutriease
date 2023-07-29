@@ -64,4 +64,8 @@ class HomeViewModel : ViewModel() {
 
             }
     }
+
+    fun signOutUser(){
+        auth.signOut()
+    }
 }

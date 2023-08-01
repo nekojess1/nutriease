@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
-import org.nekojess.nutriease.data.PatientsRepository
+import org.nekojess.nutriease.data.PatientRepository
 import org.nekojess.nutriease.data.UserRepository
 import org.nekojess.nutriease.domain.dto.HomeDto
 import org.nekojess.nutriease.domain.dto.UserDto
 
 class HomeViewModel(
-    private val patientRepository: PatientsRepository,
+    private val patientRepository: PatientRepository,
     private val userRepository: UserRepository
 ) : ViewModel() {
 

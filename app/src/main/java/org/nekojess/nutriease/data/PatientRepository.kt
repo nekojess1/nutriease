@@ -8,7 +8,7 @@ import kotlinx.coroutines.tasks.await
 import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.util.StringUtils
 
-class PatientsRepository {
+class PatientRepository {
 
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()

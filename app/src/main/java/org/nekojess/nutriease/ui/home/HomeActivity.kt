@@ -3,6 +3,7 @@ package org.nekojess.nutriease.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,7 +13,8 @@ import org.nekojess.nutriease.databinding.ActivityHomeBinding
 import org.nekojess.nutriease.ui.login.LoginActivity
 import org.nekojess.nutriease.util.StringUtils.toHtml
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
+import org.nekojess.nutriease.domain.dto.HomeDto
+import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 
 class HomeActivity : AppCompatActivity() {
     private val binding: ActivityHomeBinding by lazy {
@@ -35,6 +37,13 @@ class HomeActivity : AppCompatActivity() {
         setViewModel()
         setImageClick()
         configLateralMenu()
+        setRegisterUserButton()
+    }
+
+    private fun setRegisterUserButton() {
+        binding.activityHomeRegisterPatient.setOnClickListener {
+            startActivity(Intent(this, CreatePatientActivity::class.java))
+        }
     }
 
     private fun configLateralMenu() {
@@ -80,10 +89,16 @@ class HomeActivity : AppCompatActivity() {
     private fun setViewModel() {
         viewModel.getUserData()
         viewModel.userLiveData.observe(this) { data ->
-            binding.activityHomeUserName.text =
-                getString(R.string.home_activity_user_name, data.user?.name).toHtml()
-            binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+            setUserData(data)
         }
+    }
+
+    private fun setUserData(data: HomeDto) {
+        binding.activityHomeUserName.text =
+            getString(R.string.home_activity_user_name, data.user?.name).toHtml()
+        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+        binding.navigationView.findViewById<TextView>(R.id.nav_header_user_name).text =
+            data.user?.name
     }
 
 }

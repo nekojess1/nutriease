@@ -13,8 +13,8 @@
             android:id="@+id/action_createPatientPersonalDataFragment_to_createPatientNutriInfoFragment"
             app:destination="@id/createPatientNutriInfoFragment">
             <argument
-                android:name="userPersonalData"
-                app:argType=".domain.dto.UserDto" />
+                android:name="patientData"
+                app:argType=".domain.dto.PatientDto" />
         </action>
     </fragment>
     <fragment
@@ -23,7 +23,7 @@
         android:label="CreatePatientNutriInfoFragment"
         tools:layout="@layout/fragment_create_patient_nutri_info">
         <argument
-            android:name="userPersonalData"
-            app:argType="org.nekojess.nutriease.domain.dto.UserDto" />
+            android:name="patientData"
+            app:argType="org.nekojess.nutriease.domain.dto.PatientDto" />
     </fragment>
 </navigation>

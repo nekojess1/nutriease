@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentCreatePatientPersonalDataBinding
-import org.nekojess.nutriease.domain.dto.UserDto
+import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.util.DateTextWatcher
 import org.nekojess.nutriease.util.VerificationUtils.isNotEmptyText
 
@@ -55,9 +55,9 @@ class CreatePatientPersonalDataFragment : Fragment() {
         }
     }
 
-    private fun getPersonalData(): UserDto {
-        return UserDto(
-            binding.createPatientActivityNameText.text.toString(),
+    private fun getPersonalData(): PatientDto {
+        return PatientDto(
+            name = binding.createPatientActivityNameText.text.toString(),
             binding.createPatientActivityBirthdayText.text.toString(),
             binding.createPatientActivityCrnText.text.toString(),
             binding.createPatientActivityUfText.text.toString(),

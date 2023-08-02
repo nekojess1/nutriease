@@ -40,6 +40,11 @@ class HomeActivity : AppCompatActivity() {
         setRegisterUserButton()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setViewModel()
+    }
+
     private fun setRegisterUserButton() {
         binding.activityHomeRegisterPatient.setOnClickListener {
             startActivity(Intent(this, CreatePatientActivity::class.java))

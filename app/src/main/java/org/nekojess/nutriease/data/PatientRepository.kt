@@ -4,7 +4,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.util.StringUtils
 
@@ -20,21 +22,17 @@ class PatientRepository {
 
     private val userId = auth.currentUser?.uid ?: StringUtils.EMPTY_STRING
 
-    private fun savePatientData(patientDto: PatientDto) {
-        val user = auth.currentUser
-        val userId = user?.uid
-
-        if (userId != null) {
-            fireStore.collection(USER_COLLECTION)
-                .document(userId)
-                .collection(PATIENTS_COLLECTION)
-                .add(patientDto)
-                .addOnSuccessListener {
-
-                }
-                .addOnFailureListener { _ ->
-
-                }
+    suspend fun savePatientData(patientDto: PatientDto): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            try {
+                fireStore.collection(USER_COLLECTION)
+                    .document(userId)
+                    .collection(PATIENTS_COLLECTION)
+                    .add(patientDto).await()
+                Result.success(true)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
         }
     }
 

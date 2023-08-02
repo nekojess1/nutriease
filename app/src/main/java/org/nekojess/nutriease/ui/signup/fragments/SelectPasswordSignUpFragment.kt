@@ -41,11 +41,10 @@ class SelectPasswordSignUpFragment : Fragment() {
     ): View {
         configureFinishButton()
         configPasswordStrength()
-        configConfirmButton()
         return binding.root
     }
 
-    private fun configConfirmButton() {
+    private fun configureFinishButton() {
         binding.selectPasswordSignUpFragmentFinishButton.setOnClickListener {
             createUser()
         }
@@ -113,11 +112,5 @@ class SelectPasswordSignUpFragment : Fragment() {
             password,
             confirmPassword
         )
-    }
-
-    private fun configureFinishButton() {
-        binding.selectPasswordSignUpFragmentFinishButton.setOnClickListener {
-
-        }
     }
 }

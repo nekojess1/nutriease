@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/d_24"
         android:layout_marginBottom="@dimen/d_48"
-        android:text="@string/sign_up_activity_continue"
+        android:text="@string/continue_button"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

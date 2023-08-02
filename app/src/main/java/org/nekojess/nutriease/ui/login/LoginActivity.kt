@@ -22,7 +22,7 @@ import org.nekojess.nutriease.ui.home.HomeActivity
 import org.nekojess.nutriease.ui.signup.SignUpActivity
 import org.nekojess.nutriease.util.StringUtils.hashPassword
 import org.nekojess.nutriease.util.VerificationUtils.isValidEmail
-import org.nekojess.nutriease.util.VerificationUtils.isEmptyText
+import org.nekojess.nutriease.util.VerificationUtils.isNotEmptyText
 
 
 class LoginActivity : AppCompatActivity() {
@@ -113,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkValidEmail() = binding.loginActivityEmail.isValidEmail()
-    private fun checkValidPassword() = binding.loginActivityPassword.isEmptyText()
+    private fun checkValidPassword() = binding.loginActivityPassword.isNotEmptyText()
 
     private fun login() {
         val email = binding.loginActivityEmailText.text.toString().trim()

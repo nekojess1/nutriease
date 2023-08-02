@@ -9,6 +9,8 @@
     <string name="confirm_password">confirmar senha</string>
     <string name="uf">UF</string>
     <string name="city">cidade</string>
+    <string name="continue_button">continuar</string>
+
 
     <!-- Onboarding -->
     <string name="onboarding_first_frame_title">Acompanhe seus pacientes</string>
@@ -26,7 +28,6 @@
     <string name="login_activity_sign_up">Ainda não possui conta? Cadastre-se</string>
 
     <!-- SignUp -->
-    <string name="sign_up_activity_continue">continuar</string>
     <string name="sign_up_activity_personal_data">dados pessoais</string>
     <string name="sign_up_activity_birthday">data de nascimento</string>
     <string name="sign_up_activity_crn">CRN</string>
@@ -81,4 +82,5 @@
     <!-- Home -->
     <string name="home_activity_user_name">Olá, <b>%s</b></string>
     <string name="profile">perfil</string>
+    <string name="change_image">trocar imagem</string>
 </resources>

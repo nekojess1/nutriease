@@ -29,7 +29,7 @@ class CreatePatientPersonalDataFragment : Fragment() {
     }
 
     private fun setDateChangedListener() {
-        binding.createPatientActivityBirthdayText.addTextChangedListener(DateTextWatcher())
+        binding.createPatientFragmentBirthdayText.addTextChangedListener(DateTextWatcher())
     }
 
     private fun setStatesList() {
@@ -39,12 +39,12 @@ class CreatePatientPersonalDataFragment : Fragment() {
             R.layout.simple_list_item,
             ufs
         )
-        binding.createPatientActivityUfText.setAdapter(adapter)
+        binding.createPatientFragmentUfText.setAdapter(adapter)
     }
 
     private fun configureContinueButton() {
         binding.createPatientContinueButton.setOnClickListener {
-            if (binding.createPatientActivityName.isNotEmptyText()) {
+            if (binding.createPatientFragmentName.isNotEmptyText()) {
                 val action =
                     CreatePatientPersonalDataFragmentDirections
                         .actionCreatePatientPersonalDataFragmentToCreatePatientNutriInfoFragment(
@@ -57,11 +57,8 @@ class CreatePatientPersonalDataFragment : Fragment() {
 
     private fun getPersonalData(): PatientDto {
         return PatientDto(
-            name = binding.createPatientActivityNameText.text.toString(),
-            binding.createPatientActivityBirthdayText.text.toString(),
-            binding.createPatientActivityCrnText.text.toString(),
-            binding.createPatientActivityUfText.text.toString(),
-            binding.createPatientActivityCityText.text.toString()
+            name = binding.createPatientFragmentNameText.text.toString(),
+            binding.createPatientFragmentBirthdayText.text.toString()
         )
     }
 }

@@ -11,6 +11,7 @@ import org.nekojess.nutriease.databinding.FragmentCreatePatientNutriInfoBinding
 import org.nekojess.nutriease.ui.createPatient.CreatePatientViewModel
 
 class CreatePatientNutriInfoFragment : Fragment() {
+
     private val binding: FragmentCreatePatientNutriInfoBinding by lazy {
         FragmentCreatePatientNutriInfoBinding.inflate(layoutInflater)
     }

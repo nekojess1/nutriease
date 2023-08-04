@@ -25,63 +25,73 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/create_patient_activity_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
+                android:id="@+id/create_patient_weight_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/d_24"
                 android:layout_marginTop="@dimen/d_48"
-                android:hint="@string/name"
-                app:boxBackgroundColor="@color/white"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/create_patient_nutri_info_title">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/create_patient_activity_name_text"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/create_patient_activity_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:layout_weight="1"
+                    android:hint="peso"
+                    app:boxBackgroundColor="@color/white">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/create_patient_activity_name_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/create_patient_activity_birthday"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/d_24"
-                android:layout_marginTop="@dimen/d_24"
-                android:hint="@string/sign_up_activity_birthday"
-                app:boxBackgroundColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/create_patient_activity_name">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/create_patient_activity_birthday_text"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/create_patient_activity_birthday"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:maxLength="10" />
+                    android:layout_marginStart="@dimen/d_4"
+                    android:layout_weight="1"
+                    android:hint="altura(cm)"
+                    app:boxBackgroundColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/create_patient_activity_birthday_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:maxLength="10" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/create_patient_activity_crn"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/d_24"
-                android:layout_marginTop="@dimen/d_24"
-                android:hint="@string/sign_up_activity_crn"
-                app:boxBackgroundColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/create_patient_activity_birthday">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/create_patient_activity_crn_text"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/create_patient_activity_crn"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:layout_marginStart="@dimen/d_4"
+                    android:layout_weight="1"
+                    android:hint="imc"
+                    app:boxBackgroundColor="@color/white">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/create_patient_activity_crn_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/create_patient_activity_uf"
@@ -94,7 +104,7 @@
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/create_patient_activity_city"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_patient_activity_crn">
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_weight_container">
 
                 <AutoCompleteTextView
                     android:id="@+id/create_patient_activity_uf_text"
@@ -117,7 +127,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/create_patient_activity_uf"
-                app:layout_constraintTop_toBottomOf="@+id/create_patient_activity_crn">
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_weight_container">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/create_patient_activity_city_text"
@@ -132,8 +142,8 @@
         android:id="@+id/create_patient_button_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <View

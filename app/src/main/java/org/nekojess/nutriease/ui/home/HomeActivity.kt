@@ -35,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setViewModel()
-        setImageClick()
+        setUserImageClick()
         configLateralMenu()
         setRegisterUserButton()
     }
@@ -72,7 +72,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun setImageClick() {
+    private fun setUserImageClick() {
         binding.activityHomeUserImage.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -101,9 +101,13 @@ class HomeActivity : AppCompatActivity() {
     private fun setUserData(data: HomeDto) {
         binding.activityHomeUserName.text =
             getString(R.string.home_activity_user_name, data.user?.name).toHtml()
-        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
         binding.navigationView.findViewById<TextView>(R.id.nav_header_user_name).text =
             data.user?.name
+        setPatientList(data)
+    }
+
+    private fun setPatientList(data: HomeDto) {
+        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
     }
 
 }

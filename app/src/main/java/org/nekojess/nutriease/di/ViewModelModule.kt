@@ -7,6 +7,7 @@ import org.nekojess.nutriease.data.PatientRepository
 import org.nekojess.nutriease.data.UserRepository
 import org.nekojess.nutriease.ui.createPatient.CreatePatientViewModel
 import org.nekojess.nutriease.ui.login.LoginViewModel
+import org.nekojess.nutriease.ui.signup.SignUpViewModel
 
 object ViewModelModule {
 
@@ -16,5 +17,6 @@ object ViewModelModule {
         viewModel { HomeViewModel(get(), get()) }
         viewModel { LoginViewModel(get()) }
         viewModel { CreatePatientViewModel(get()) }
+        viewModel { SignUpViewModel(get()) }
     }
 }

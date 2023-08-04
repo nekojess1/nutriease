@@ -20,11 +20,10 @@ class PatientRepository {
         Firebase.firestore
     }
 
-    private val userId = auth.currentUser?.uid ?: StringUtils.EMPTY_STRING
-
     suspend fun savePatientData(patientDto: PatientDto): Result<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
+                val userId = auth.currentUser?.uid ?: StringUtils.EMPTY_STRING
                 fireStore.collection(USER_COLLECTION)
                     .document(userId)
                     .collection(PATIENTS_COLLECTION)
@@ -38,6 +37,7 @@ class PatientRepository {
 
     suspend fun getPatientList(): Result<List<PatientDto>> {
         return try {
+            val userId = auth.currentUser?.uid ?: StringUtils.EMPTY_STRING
             val querySnapshot = fireStore.collection(USER_COLLECTION)
                 .document(userId)
                 .collection(PATIENTS_COLLECTION)

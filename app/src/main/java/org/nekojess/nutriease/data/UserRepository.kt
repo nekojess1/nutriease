@@ -21,10 +21,9 @@ class UserRepository {
         Firebase.firestore
     }
 
-    private val userId = auth.currentUser?.uid ?: EMPTY_STRING
-
     suspend fun getUserData(): Result<UserDto> = withContext(Dispatchers.IO) {
         try {
+            val userId = auth.currentUser?.uid ?: EMPTY_STRING
             val document = fireStore.collection(USER_COLLECTION)
                 .document(userId)
                 .get()
@@ -44,6 +43,32 @@ class UserRepository {
         return withContext(Dispatchers.IO) {
             try {
                 auth.signInWithEmailAndPassword(userLogin.email, userLogin.password).await()
+                Result.success(true)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
+        }
+    }
+
+    suspend fun createUser(userLogin: LoginDto): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            try {
+                auth.createUserWithEmailAndPassword(userLogin.email, userLogin.password).await()
+                Result.success(true)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
+        }
+    }
+
+    suspend fun saveUserData(userData: UserDto): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val userId = auth.currentUser?.uid ?: EMPTY_STRING
+                fireStore.collection(USER_COLLECTION)
+                    .document(userId)
+                    .set(userData)
+                    .await()
                 Result.success(true)
             } catch (e: Exception) {
                 Result.failure(e)

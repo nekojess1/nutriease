@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.nekojess.nutriease.data.PatientRepository
+import org.nekojess.nutriease.data.repository.PatientRepository
 import org.nekojess.nutriease.domain.dto.PatientDto
 
 class CreatePatientViewModel(private val patientRepository: PatientRepository) : ViewModel() {

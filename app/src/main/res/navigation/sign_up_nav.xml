@@ -15,7 +15,7 @@
             app:destination="@id/contactInformationSignUpFragment" >
             <argument
                 android:name="personalData"
-                app:argType=".domain.dto.SignUpDto" />
+                app:argType=".domain.dto.UserDto" />
         </action>
     </fragment>
     <fragment
@@ -28,11 +28,11 @@
             app:destination="@id/selectPasswordSignUpFragment">
             <argument
                 android:name="personalData"
-                app:argType=".domain.dto.SignUpDto" />
+                app:argType=".domain.dto.UserDto" />
         </action>
         <argument
             android:name="personalData"
-            app:argType="org.nekojess.nutriease.domain.dto.SignUpDto" />
+            app:argType="org.nekojess.nutriease.domain.dto.UserDto" />
     </fragment>
     <fragment
         android:id="@+id/selectPasswordSignUpFragment"
@@ -41,6 +41,6 @@
         tools:layout="@layout/fragment_select_password_sign_up" >
         <argument
             android:name="personalData"
-            app:argType="org.nekojess.nutriease.domain.dto.SignUpDto" />
+            app:argType="org.nekojess.nutriease.domain.dto.UserDto" />
     </fragment>
 </navigation>

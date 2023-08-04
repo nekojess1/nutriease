@@ -65,10 +65,20 @@
 
     <!-- Strength Password -->
     <string name="strength_password_information">a senha deve ter:</string>
-    <string name="strength_password_condition_1">A senha deve conter pelo menos 8 caracteres</string>
-    <string name="strength_password_condition_2">A senha deve conter ao menos uma letra minúscula e uma minúscula</string>
-    <string name="strength_password_condition_3">A senha deve conter pelo menos um número</string>
-    <string name="strength_password_condition_4">A senha deve conter pelo menos um caractere especial</string>
-    <string name="strength_password_condition_5">A senhas devem ser iguais</string>
+    <string name="strength_password_condition_1">ao menos 8 caracteres</string>
+    <string name="strength_password_condition_2">no mínimo uma letra minúscula e uma maiúscula</string>
+    <string name="strength_password_condition_3">pelo menos um número</string>
+    <string name="strength_password_condition_4">pelo menos um caractere especial</string>
+    <string name="strength_password_condition_5">devem ser iguais</string>
 
+    <string name="exit">sair</string>
+    <string name="create_new_diet">Criar uma nova dieta</string>
+    <string name="start_here">comece aqui</string>
+    <string name="see_all">ver todos</string>
+    <string name="register_patient">cadastrar paciente</string>
+    <string name="patients">Pacientes</string>
+
+    <!-- Home -->
+    <string name="home_activity_user_name">Olá, <b>%s</b></string>
+    <string name="profile">perfil</string>
 </resources>

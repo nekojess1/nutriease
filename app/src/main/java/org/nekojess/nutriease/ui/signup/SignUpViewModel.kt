@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.nekojess.nutriease.data.repository.UserRepository
+import org.nekojess.nutriease.data.repository.user.UserRepository
 import org.nekojess.nutriease.domain.dto.LoginDto
 import org.nekojess.nutriease.domain.dto.UserDto
 
-class SignUpViewModel(private val patientRepository: UserRepository) : ViewModel() {
+class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _userLiveData = MutableLiveData<Boolean>()
 
@@ -18,7 +18,7 @@ class SignUpViewModel(private val patientRepository: UserRepository) : ViewModel
 
     fun saveUser(loginDto: LoginDto, userData: UserDto) {
         viewModelScope.launch {
-            val result = patientRepository.createUser(loginDto)
+            val result = userRepository.createUser(loginDto)
             result.onSuccess {
                 saveUserData(userData)
             }
@@ -30,7 +30,7 @@ class SignUpViewModel(private val patientRepository: UserRepository) : ViewModel
 
     private fun saveUserData(userData: UserDto) {
         viewModelScope.launch {
-            val result = patientRepository.saveUserData(userData)
+            val result = userRepository.saveUserData(userData)
             result.onSuccess { successRegister ->
                 _userLiveData.value = successRegister
             }

@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityHomeBinding
 import org.nekojess.nutriease.ui.login.LoginActivity
@@ -17,6 +16,7 @@ import org.nekojess.nutriease.domain.dto.HomeDto
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 
 class HomeActivity : AppCompatActivity() {
+
     private val binding: ActivityHomeBinding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
     }
@@ -25,10 +25,6 @@ class HomeActivity : AppCompatActivity() {
 
     private val drawerLayout: DrawerLayout by lazy {
         binding.drawerLayout
-    }
-
-    private val navigationView: NavigationView by lazy {
-        binding.navigationView
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setMenuItemListener() {
-        navigationView.setNavigationItemSelectedListener { menuItem ->
+        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.exit -> {
                     viewModel.signOutUser()

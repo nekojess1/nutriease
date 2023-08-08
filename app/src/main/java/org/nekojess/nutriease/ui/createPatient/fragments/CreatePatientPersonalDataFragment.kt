@@ -58,7 +58,11 @@ class CreatePatientPersonalDataFragment : Fragment() {
     private fun getPersonalData(): PatientDto {
         return PatientDto(
             name = binding.createPatientFragmentNameText.text.toString(),
-            binding.createPatientFragmentBirthdayText.text.toString()
+            birthday = binding.createPatientFragmentBirthdayText.text.toString(),
+            uf = binding.createPatientFragmentUfText.text.toString(),
+            city = binding.createPatientFragmentCityText.text.toString(),
+            email = binding.createPatientFragmentEmailText.text.toString(),
+            phone = binding.createPatientFragmentPhoneText.text.toString()
         )
     }
 }

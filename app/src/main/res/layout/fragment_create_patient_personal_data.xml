@@ -7,7 +7,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="@dimen/d_0"
-        app:layout_constraintBottom_toTopOf="@+id/create_patient_button_container"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -142,8 +142,10 @@
                 android:layout_marginStart="@dimen/d_16"
                 android:layout_marginTop="@dimen/d_24"
                 android:layout_marginEnd="@dimen/d_24"
+                android:layout_marginBottom="@dimen/d_24"
                 android:hint="@string/city"
                 app:boxBackgroundColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/create_patient_continue_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/create_patient_fragment_uf"
                 app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_email">
@@ -154,24 +156,16 @@
                     android:layout_height="wrap_content"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/create_patient_continue_button"
+                style="@style/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginBottom="@dimen/d_24"
+                android:text="@string/continue_button"
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <LinearLayout
-        android:id="@+id/create_patient_button_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/d_16"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <Button
-            android:id="@+id/create_patient_continue_button"
-            style="@style/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/d_24"
-            android:layout_marginBottom="@dimen/d_24"
-            android:text="@string/continue_button" />
-    </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

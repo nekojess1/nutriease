@@ -64,6 +64,13 @@
         <item>TO</item>
     </string-array>
 
+    <string-array name="paf">
+        <item>sedentário</item>
+        <item>baixa atividade</item>
+        <item>ativo</item>
+        <item>muito ativo</item>
+    </string-array>
+
     <!-- Strength Password -->
     <string name="strength_password_information">a senha deve ter:</string>
     <string name="strength_password_condition_1">ao menos 8 caracteres</string>
@@ -82,6 +89,15 @@
     <!-- Home -->
     <string name="home_activity_user_name">Olá, <b>%s</b></string>
     <string name="profile">perfil</string>
+
+
     <string name="change_image">trocar imagem</string>
     <string name="nutritional_information">Informações Nutricionais</string>
+    <string name="metabolic_rate">taxa metabólica</string>
+    <string name="taf">fator atividade física</string>
+    <string name="food_preference">preferência alimentar</string>
+    <string name="food_restriction">restrinção alimentar</string>
+    <string name="target">objetivo</string>
+    <string name="height">altura</string>
+    <string name="weight">peso</string>
 </resources>

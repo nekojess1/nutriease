@@ -43,13 +43,9 @@ data class PatientDto (
     @set:PropertyName("height")
     var height: String = EMPTY_STRING,
 
-    @get:PropertyName("imc")
-    @set:PropertyName("imc")
-    var imc: Double = 0.0 ,
-
-    @get:PropertyName("metabolicRate")
-    @set:PropertyName("metabolicRate")
-    var metabolicRate: Int = 0,
+    @get:PropertyName("paf")
+    @set:PropertyName("paf")
+    var paf: String = EMPTY_STRING,
 
     @get:PropertyName("target")
     @set:PropertyName("target")

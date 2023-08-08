@@ -90,4 +90,12 @@
         <item name="android:maxHeight">8dp</item>
     </style>
 
+    <style name="EditTextMultilineStyle">
+        <item name="android:layout_gravity">start</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:minLines">3</item>
+        <item name="android:maxLines">5</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

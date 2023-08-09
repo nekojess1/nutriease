@@ -17,6 +17,11 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.createPatient.CreatePatientActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
             android:exported="true">

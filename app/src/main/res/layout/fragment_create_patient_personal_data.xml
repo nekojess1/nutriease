@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/create_patient_fragment_user_image"
+                android:layout_width="@dimen/d_120"
+                android:layout_height="@dimen/d_120"
+                android:layout_marginTop="@dimen/d_24"
+                android:src="@drawable/jess_image"
+                app:civ_border_color="@color/pink_app"
+                app:civ_border_width="@dimen/d_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/change_photo"
+                style="@style/buttonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_8"
+                android:text="@string/change_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_user_image" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_48"
+                android:hint="@string/name"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/change_photo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_patient_fragment_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_birthday"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/d_0"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/sign_up_activity_birthday"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/create_patient_fragment_genre"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_patient_fragment_birthday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:maxLength="10" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_genre"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/genre"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_name">
+
+                <AutoCompleteTextView
+                    android:id="@+id/create_patient_fragment_genre_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_phone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/phone"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_birthday">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_patient_fragment_phone_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/email"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_patient_fragment_email_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_uf"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/uf"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/create_patient_fragment_city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_email">
+
+                <AutoCompleteTextView
+                    android:id="@+id/create_patient_fragment_uf_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_city"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/d_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d_16"
+                android:layout_marginTop="@dimen/d_24"
+                android:layout_marginEnd="@dimen/d_24"
+                android:layout_marginBottom="@dimen/d_24"
+                android:hint="@string/city"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/create_patient_continue_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/create_patient_fragment_uf"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_patient_fragment_city_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/create_patient_continue_button"
+                style="@style/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginBottom="@dimen/d_24"
+                android:text="@string/continue_button"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

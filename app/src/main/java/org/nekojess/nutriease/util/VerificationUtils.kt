@@ -20,15 +20,15 @@ object VerificationUtils {
         return false
     }
 
-    fun TextInputLayout.isEmptyText(): Boolean {
+    fun TextInputLayout.isNotEmptyText(): Boolean {
         val text = this.editText?.text.toString()
-        if (text.isEmpty()) {
+        return if (text.isEmpty()) {
             this.error = "${this.hint} não pode ser vazio"
+            false
         } else {
             clearError()
-            return true
+            true
         }
-        return false
     }
 
     private fun TextInputLayout.clearError() {

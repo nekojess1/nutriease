@@ -1,4 +1,4 @@
-package org.nekojess.nutriease.data
+package org.nekojess.nutriease.data.repository.user
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,7 +11,7 @@ import org.nekojess.nutriease.domain.dto.LoginDto
 import org.nekojess.nutriease.domain.dto.UserDto
 import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 
-class UserRepository {
+class UserRepositoryImpl: UserRepository {
 
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -21,10 +21,9 @@ class UserRepository {
         Firebase.firestore
     }
 
-    private val userId = auth.currentUser?.uid ?: EMPTY_STRING
-
-    suspend fun getUserData(): Result<UserDto> = withContext(Dispatchers.IO) {
+    override suspend fun getUserData(): Result<UserDto> = withContext(Dispatchers.IO) {
         try {
+            val userId = auth.currentUser?.uid ?: EMPTY_STRING
             val document = fireStore.collection(USER_COLLECTION)
                 .document(userId)
                 .get()
@@ -40,10 +39,36 @@ class UserRepository {
         }
     }
 
-    suspend fun authUser(userLogin: LoginDto): Result<Boolean> {
+    override suspend fun authUser(userLogin: LoginDto): Result<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
                 auth.signInWithEmailAndPassword(userLogin.email, userLogin.password).await()
+                Result.success(true)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
+        }
+    }
+
+    override suspend fun createUser(userLogin: LoginDto): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            try {
+                auth.createUserWithEmailAndPassword(userLogin.email, userLogin.password).await()
+                Result.success(true)
+            } catch (e: Exception) {
+                Result.failure(e)
+            }
+        }
+    }
+
+    override suspend fun saveUserData(userData: UserDto): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val userId = auth.currentUser?.uid ?: EMPTY_STRING
+                fireStore.collection(USER_COLLECTION)
+                    .document(userId)
+                    .set(userData)
+                    .await()
                 Result.success(true)
             } catch (e: Exception) {
                 Result.failure(e)

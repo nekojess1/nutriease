@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityHomeBinding
 import org.nekojess.nutriease.ui.login.LoginActivity
@@ -17,6 +16,7 @@ import org.nekojess.nutriease.domain.dto.HomeDto
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 
 class HomeActivity : AppCompatActivity() {
+
     private val binding: ActivityHomeBinding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
     }
@@ -27,17 +27,18 @@ class HomeActivity : AppCompatActivity() {
         binding.drawerLayout
     }
 
-    private val navigationView: NavigationView by lazy {
-        binding.navigationView
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setViewModel()
-        setImageClick()
+        setUserImageClick()
         configLateralMenu()
         setRegisterUserButton()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setViewModel()
     }
 
     private fun setRegisterUserButton() {
@@ -55,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setMenuItemListener() {
-        navigationView.setNavigationItemSelectedListener { menuItem ->
+        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.exit -> {
                     viewModel.signOutUser()
@@ -67,7 +68,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun setImageClick() {
+    private fun setUserImageClick() {
         binding.activityHomeUserImage.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -96,9 +97,13 @@ class HomeActivity : AppCompatActivity() {
     private fun setUserData(data: HomeDto) {
         binding.activityHomeUserName.text =
             getString(R.string.home_activity_user_name, data.user?.name).toHtml()
-        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
         binding.navigationView.findViewById<TextView>(R.id.nav_header_user_name).text =
             data.user?.name
+        setPatientList(data)
+    }
+
+    private fun setPatientList(data: HomeDto) {
+        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
     }
 
 }

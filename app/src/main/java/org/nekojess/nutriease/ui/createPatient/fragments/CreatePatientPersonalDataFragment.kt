@@ -24,6 +24,7 @@ class CreatePatientPersonalDataFragment : Fragment() {
     ): View {
         configureContinueButton()
         setStatesList()
+        setGenreList()
         setDateChangedListener()
         return binding.root
     }
@@ -40,6 +41,16 @@ class CreatePatientPersonalDataFragment : Fragment() {
             ufs
         )
         binding.createPatientFragmentUfText.setAdapter(adapter)
+    }
+
+    private fun setGenreList() {
+        val genreList = resources.getStringArray(R.array.genre_list)
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.simple_list_item,
+            genreList
+        )
+        binding.createPatientFragmentGenreText.setAdapter(adapter)
     }
 
     private fun configureContinueButton() {
@@ -62,7 +73,8 @@ class CreatePatientPersonalDataFragment : Fragment() {
             uf = binding.createPatientFragmentUfText.text.toString(),
             city = binding.createPatientFragmentCityText.text.toString(),
             email = binding.createPatientFragmentEmailText.text.toString(),
-            phone = binding.createPatientFragmentPhoneText.text.toString()
+            phone = binding.createPatientFragmentPhoneText.text.toString(),
+            genre = binding.createPatientFragmentGenreText.text.toString()
         )
     }
 }

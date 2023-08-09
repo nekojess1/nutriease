@@ -71,6 +71,12 @@
         <item>muito ativo</item>
     </string-array>
 
+    <string-array name="genre_list">
+        <item>feminino</item>
+        <item>masculino</item>
+        <item>outros</item>
+    </string-array>
+
     <!-- Strength Password -->
     <string name="strength_password_information">a senha deve ter:</string>
     <string name="strength_password_condition_1">ao menos 8 caracteres</string>
@@ -100,4 +106,5 @@
     <string name="target">objetivo</string>
     <string name="height">altura</string>
     <string name="weight">peso</string>
+    <string name="genre">gênero</string>
 </resources>

@@ -59,12 +59,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/create_patient_fragment_birthday"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/d_0"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/d_24"
                 android:layout_marginTop="@dimen/d_24"
                 android:hint="@string/sign_up_activity_birthday"
                 app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/create_patient_fragment_genre"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_name">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -74,6 +76,25 @@
                     android:inputType="date"
                     android:maxLength="10" />
 
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_patient_fragment_genre"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/genre"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_patient_fragment_name">
+
+                <AutoCompleteTextView
+                    android:id="@+id/create_patient_fragment_genre_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

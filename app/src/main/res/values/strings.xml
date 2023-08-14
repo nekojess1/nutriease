@@ -92,6 +92,10 @@
     <string name="register_patient">cadastrar paciente</string>
     <string name="patients">Pacientes</string>
 
+    <!-- ChatGPT -->
+    <string name="generate_recipes">Gerar receitas com ChatGPT</string>
+    <string name="error">Ocorreu um erro. Tente novamente.</string>
+
     <!-- Home -->
     <string name="home_activity_user_name">Olá, <b>%s</b></string>
     <string name="profile">perfil</string>

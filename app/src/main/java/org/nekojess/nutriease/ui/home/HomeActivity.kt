@@ -14,6 +14,7 @@ import org.nekojess.nutriease.util.StringUtils.toHtml
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.domain.dto.HomeDto
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
+import org.nekojess.nutriease.ui.generateRecipe.GenerateRecipesActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -34,11 +35,18 @@ class HomeActivity : AppCompatActivity() {
         setUserImageClick()
         configLateralMenu()
         setRegisterUserButton()
+        setGenerateRecipesButton()
     }
 
     override fun onResume() {
         super.onResume()
         setViewModel()
+    }
+
+    private fun setGenerateRecipesButton() {
+        binding.activityHomeGenerateRecipes.setOnClickListener {
+            startActivity(Intent(this, GenerateRecipesActivity::class.java))
+        }
     }
 
     private fun setRegisterUserButton() {

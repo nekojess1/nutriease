@@ -78,6 +78,7 @@ class GenerateRecipesActivity : AppCompatActivity() {
     private fun statusError(error: Throwable?) {
         binding.loading.root.visibility = View.GONE
         binding.recyclerView.visibility = View.GONE
+        binding.groupIngredient.visibility = View.VISIBLE
         Log.i("ERROR", error?.message.toString())
         Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG).show()
     }

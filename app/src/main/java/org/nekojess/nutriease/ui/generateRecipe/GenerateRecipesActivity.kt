@@ -2,26 +2,21 @@ package org.nekojess.nutriease.ui.generateRecipe
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityGenerateRecipesBinding
 import org.nekojess.nutriease.domain.dto.RecipesListDto
+import org.nekojess.nutriease.ui.generateRecipe.adapterRecipe.RecipeListAdapter
 import org.nekojess.nutriease.util.BaseModelState
 
 class GenerateRecipesActivity : AppCompatActivity() {
     private val viewModel: GenerateRecipesViewModel by viewModel()
 
-    //val adapter: UserListAdapter by lazy { UserListAdapter() }
+    val adapter: RecipeListAdapter by lazy { RecipeListAdapter() }
     private val binding: ActivityGenerateRecipesBinding by lazy {
         ActivityGenerateRecipesBinding.inflate(
             layoutInflater
@@ -69,26 +64,27 @@ class GenerateRecipesActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
-        //recyclerView.adapter = adapter
-        //recyclerView.layoutManager = LinearLayoutManager(context)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
     }
 
     private fun statusSuccess(recipesList: RecipesListDto) {
-        //adapter.users = userList
+        adapter.recipes = recipesList.receitas
         binding.loading.root.visibility = View.GONE
-        //recyclerView.visibility = View.VISIBLE
+        binding.recyclerView.visibility = View.VISIBLE
     }
 
     private fun statusError(error: Throwable?) {
         binding.loading.root.visibility = View.GONE
-        //recyclerView.visibility = View.GONE
+        binding.recyclerView.visibility = View.GONE
         Log.i("ERROR", error?.message.toString())
         Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG).show()
     }
 
     private fun statusLoading() {
         binding.loading.root.visibility = View.VISIBLE
-        //recyclerView.visibility = View.GONE
+        binding.recyclerView.visibility = View.GONE
+        binding.groupIngredient.visibility = View.GONE
     }
 }

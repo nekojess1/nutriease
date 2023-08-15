@@ -93,8 +93,12 @@
     <string name="patients">Pacientes</string>
 
     <!-- ChatGPT -->
-    <string name="generate_recipes">Gerar receitas com ChatGPT</string>
+    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com ChatGPT</string>
+    <string name="button_text_generate_recipes">Gerar receitas</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="textField_hint">Digite pelo menos três ingredientes:</string>
+    <string name="textField_error">A lista de ingredientes não pode ser vazia</string>
+    <string name="textField_helperText">Os ingredientes devem estar em sequência separados por virgula. \nExemplo: Ovo, leite, cenoura.</string>
 
     <!-- Home -->
     <string name="home_activity_user_name">Olá, <b>%s</b></string>

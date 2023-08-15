@@ -147,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/d_24"
                     android:layout_marginTop="@dimen/d_24"
-                    android:text="@string/generate_recipes"
+                    android:text="@string/button_text_generate_recipes"
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

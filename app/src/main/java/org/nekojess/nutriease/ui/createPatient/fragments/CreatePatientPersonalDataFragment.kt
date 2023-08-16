@@ -26,7 +26,13 @@ class CreatePatientPersonalDataFragment : Fragment() {
         setStatesList()
         setGenreList()
         setDateChangedListener()
+        setHeaderConfig()
         return binding.root
+    }
+
+    private fun setHeaderConfig() {
+        binding.createPatientPersonalDataFragmentHeader.setTitle(getString(R.string.register_patient))
+        binding.createPatientPersonalDataFragmentHeader.setBackButtonListener { requireActivity().finish() }
     }
 
     private fun setDateChangedListener() {

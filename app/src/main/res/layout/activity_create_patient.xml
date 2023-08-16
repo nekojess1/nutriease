@@ -3,11 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.signup.SignUpActivity">
 
+    <org.nekojess.nutriease.ui.components.Header
+        android:id="@+id/create_patient_activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/sign_up_activity_container"
+        android:id="@+id/create_patient_activity_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -11,6 +11,9 @@
   - [Injeção de Dependência com Koin](#koin)
   - [Coroutines](#coroutines)
   - [Firebase](#firebase)
+  - [Integração com o GPT](#integração-com-o-gpt)
+  - [Retrofit](#retrofit)
+
 
 - [Contato](#contato)
   
@@ -49,7 +52,36 @@ Antes de começar, certifique-se de ter os seguintes requisitos instalados em se
 - Conecte um dispositivo Android via USB e ative a depuração USB no dispositivo.
 - Selecione um emulador Android na barra de ferramentas AVD Manager do Android Studio.
 
-4. Pressione o botão "Run" (ou Shift + F10) para compilar e executar o aplicativo.
+4. Acesse o Colab fornecido para a API: [Link Colab](https://colab.research.google.com/drive/1Wt3uPN54dSW0hFoqIs9LWTWZc7eveAxa?usp=sharing).
+
+    O Colab contém o código necessário para executar a API usando o Flask e integrar o GPT ao Nutriease.
+    
+    ![image](https://github.com/nekojess1/nutriease/assets/45262259/b5a594b8-e343-47b2-a66e-c7906b58d852)
+   
+6. Antes de executar o projeto Android, verifique se você executou o Colab para configurar e iniciar a API.
+   
+8. No Android Studio, abra o arquivo RecipeAPI.kt, que é responsável pela configuração do Retrofit para realizar chamadas de API.
+
+9. Na função função retrofit, atualize a URL para a URL temporária gerada pelo Flask-Ngrok no Colab. Por exemplo:
+        
+    ```kotlin
+    fun retrofit(
+        okHttpClient: OkHttpClient,
+        url: String = "https://3224-35-245-71-171.ngrok.io"
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(url)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create(gson()))
+            .build()
+    }
+    ```
+
+11. Pressione o botão "Run" (ou Shift + F10) para compilar e executar o aplicativo.
+
+### Observação sobre a URL da API
+
+A URL gerada pelo Flask-Ngrok para a API pode variar a cada vez que você a executa. Isso significa que a URL fornecida para o Nutriease se comunicar com a API pode precisar ser atualizada em seu código sempre que você iniciar a API novamente. Certifique-se de verificar e ajustar a URL conforme necessário para garantir a integração adequada entre o Nutriease e a API.
 
 ## Definições do projeto 
 
@@ -72,6 +104,15 @@ O projeto utiliza coroutines para lidar com chamadas assíncronas de maneira mai
 ### `Firebase`
 
 O Nutriease faz uso do Firebase Firestore para armazenamento de dados em tempo real e do Firebase Authenticator para autenticação segura de usuários. Certifique-se de configurar corretamente o Firebase em sua conta e atualizar as configurações no projeto.
+
+### `Integração com o GPT`
+
+O Nutriease oferece integração com o GPT para geração de conteúdo textual personalizado. Configure a API do GPT em sua conta e atualize as configurações no projeto para aproveitar esse recurso.
+
+### `Retrofit`
+
+O projeto utiliza o Retrofit para realizar chamadas de API.
+
 
 ## Contato
 

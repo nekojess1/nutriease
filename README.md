@@ -6,10 +6,12 @@
 - [Requisitos](#requisitos)
 - [Configuração](#configuração)
 - [Executando o Projeto](#executando-o-projeto)
-- [Características do Projeto](#características-do-projeto)
+- [Definições do Projeto](#definições-do-projeto)
   - [Arquitetura MVVM](#arquitetura-mvvm)
-  - [Injeção de Dependência com Koin](#injeção-de-dependência-com-koin)
-  - [Coroutines para Gerenciamento Assíncrono](#coroutines-para-gerenciamento-assíncrono)
+  - [Injeção de Dependência com Koin](#koin)
+  - [Coroutines](#coroutines)
+  - [Firebase](#firebase)
+
 - [Contato](#contato)
   
 ## Visão Geral
@@ -51,7 +53,7 @@ Antes de começar, certifique-se de ter os seguintes requisitos instalados em se
 
 ## Definições do projeto 
 
-### Arquitetura MVVM
+### `Arquitetura MVVM`
 
 O Nutriease adota a arquitetura MVVM (Model-View-ViewModel) para uma separação clara de responsabilidades e um desenvolvimento mais organizado. Os componentes principais da arquitetura são:
 
@@ -59,13 +61,17 @@ O Nutriease adota a arquitetura MVVM (Model-View-ViewModel) para uma separação
 - **View**: Exibe os dados e reage às interações do usuário.
 - **ViewModel**: Mantém e gerencia os dados relacionados à UI.
 
-### Injeção de Dependência com Koin
+### `Koin`
 
 O projeto Nutriease utiliza o Koin para injeção de dependência. O Koin é um framework de injeção de dependência leve e pragmático para Kotlin.
 
-### Coroutines
+### `Coroutines`
 
 O projeto utiliza coroutines para lidar com chamadas assíncronas de maneira mais concisa e eficiente. Coroutines permitem que você escreva código assíncrono de forma sequencial.
+
+### `Firebase`
+
+O Nutriease faz uso do Firebase Firestore para armazenamento de dados em tempo real e do Firebase Authenticator para autenticação segura de usuários. Certifique-se de configurar corretamente o Firebase em sua conta e atualizar as configurações no projeto.
 
 ## Contato
 

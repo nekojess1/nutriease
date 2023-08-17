@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/activity_home_user_image"
+                    android:layout_width="@dimen/d_48"
+                    android:layout_height="@dimen/d_48"
+                    android:layout_marginStart="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
+                    android:src="@drawable/jess_image"
+                    app:civ_border_color="@color/blue_app"
+                    app:civ_border_width="@dimen/d_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/activity_home_user_name"
+                    style="@style/title2_without_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/d_16"
+                    android:layout_marginEnd="@dimen/d_24"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_home_user_image"
+                    app:layout_constraintStart_toEndOf="@id/activity_home_user_image"
+                    app:layout_constraintTop_toTopOf="@id/activity_home_user_image"
+                    tools:text="Olá, Jess" />
+
+                <TextView
+                    android:id="@+id/activity_home_patient_title"
+                    style="@style/title2"
+                    android:layout_width="@dimen/d_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
+                    android:text="@string/patients"
+                    android:textAlignment="viewStart"
+                    app:layout_constraintEnd_toStartOf="@id/activity_home_patient_see_more_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_diet_card" />
+
+                <TextView
+                    android:id="@+id/activity_home_patient_see_more_btn"
+                    style="@style/buttonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/d_24"
+                    android:text="@string/see_all"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_home_patient_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/activity_home_patient_title" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/activity_home_patient_diet_card"
+                    android:layout_width="@dimen/d_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_48"
+                    android:backgroundTint="@color/blue_app"
+                    app:cardCornerRadius="@dimen/d_16"
+                    app:cardElevation="@dimen/d_8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_user_image">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/d_24">
+
+                        <TextView
+                            style="@style/title3"
+                            android:layout_width="@dimen/d_0"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/d_16"
+                            android:layout_marginEnd="@dimen/d_8"
+                            android:text="@string/create_new_diet"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/login_activity_create_diet"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/login_activity_create_diet"
+                            style="@style/buttonSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/d_16"
+                            android:backgroundTint="@color/white"
+                            android:text="@string/start_here"
+                            android:textColor="@color/black_70"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activity_home_patient_list"
+                    android:layout_width="@dimen/d_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d_16"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_title" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/activity_home_register_patient"
+                    style="@style/buttonOutline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
+                    android:text="@string/register_patient"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_list" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/activity_home_generate_recipes"
+                    style="@style/buttonSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
+                    android:text="@string/button_text_generate_recipes"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_register_patient" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_home_header"
+        app:itemTextAppearance="@style/menuItem"
+        app:menu="@menu/config_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

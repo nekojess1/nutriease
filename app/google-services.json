@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "922875225387",
+    "project_id": "nutriease-50a88",
+    "storage_bucket": "nutriease-50a88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922875225387:android:c6407c94bb043eb123116e",
+        "android_client_info": {
+          "package_name": "org.nekojess.nutriease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922875225387-ajivnmut8p1at4bh7l864v65hj72dkqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEh08Tq9GrorlVLPJWCoU-hh_2lS8g7kQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922875225387-ajivnmut8p1at4bh7l864v65hj72dkqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

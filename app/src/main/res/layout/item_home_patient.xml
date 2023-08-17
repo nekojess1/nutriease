@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:paddingEnd="@dimen/d_24"
+    android:paddingStart="@dimen/d_24"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/adapter_home_patient_image"
+        android:layout_width="@dimen/d_80"
+        android:layout_height="@dimen/d_80"
+        android:layout_marginTop="@dimen/d_24"
+        android:src="@drawable/jess_image"
+        app:civ_border_color="@color/blue_app"
+        app:civ_border_width="@dimen/d_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_page_title"
+        style="@style/description"
+        android:layout_width="@dimen/d_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d_8"
+        app:layout_constraintEnd_toEndOf="@+id/adapter_home_patient_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adapter_home_patient_image"
+        tools:text="Jéssica" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

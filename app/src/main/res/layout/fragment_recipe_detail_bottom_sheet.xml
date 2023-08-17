@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/d_16"
+    android:layout_gravity="bottom"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="200dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:importantForAccessibility="no"
+            android:src="@drawable/close_ic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/ivRecipe"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_recipe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnClose" />
+
+        <TextView
+            android:id="@+id/tvRecipeName"
+            style="@style/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivRecipe"
+            tools:text="Detalhes" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d_8"
+            android:background="@drawable/rectangle_recipe_detail"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeName">
+
+            <TextView
+                android:id="@+id/tvCalorieTitle"
+                style="@style/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_4"
+                android:layout_marginStart="@dimen/d_8"
+                android:text="@string/bottom_sheet_recipe_detail_calorie_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCalorieDescription"
+                style="@style/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_8"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="@id/tvCalorieTitle"
+                app:layout_constraintStart_toStartOf="@id/tvCalorieTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvCalorieTitle"
+                tools:text="450g" />
+
+            <TextView
+                android:id="@+id/tvCarbohydrateTitle"
+                style="@style/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_4"
+                android:layout_marginStart="@dimen/d_4"
+                android:layout_marginEnd="@dimen/d_4"
+                app:layout_constraintEnd_toStartOf="@id/tvProteinTitle"
+                android:text="@string/bottom_sheet_recipe_detail_carbohydrate_title"
+                app:layout_constraintStart_toEndOf="@id/tvCalorieTitle"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCarbohydrateDescription"
+                style="@style/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_8"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="@id/tvCarbohydrateTitle"
+                app:layout_constraintStart_toStartOf="@id/tvCarbohydrateTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvCarbohydrateTitle"
+                tools:text="220g" />
+
+            <TextView
+                android:id="@+id/tvProteinTitle"
+                style="@style/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_4"
+                android:layout_marginEnd="@dimen/d_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/bottom_sheet_recipe_detail_protein_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvProteinDescription"
+                style="@style/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_8"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="@id/tvProteinTitle"
+                app:layout_constraintStart_toStartOf="@id/tvProteinTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvProteinTitle"
+                tools:text="49g" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvRecipeMethodTitle"
+            style="@style/title2_without_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d_16"
+            android:text="@string/bottom_sheet_recipe_detail_method_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clCalories" />
+
+        <TextView
+            android:id="@+id/tvRecipeMethodDescription"
+            style="@style/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d_8"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeMethodTitle"
+            tools:text="Modo de preparo" />
+
+        <TextView
+            android:id="@+id/tvRecipeIngredientTitle"
+            style="@style/title2_without_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d_16"
+            android:text="@string/bottom_sheet_recipe_detail_ingredient_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeMethodDescription" />
+
+        <TextView
+            android:id="@+id/tvRecipeIngredientDescription"
+            style="@style/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d_8"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeIngredientTitle"
+            tools:text="Lista de ingredientes" />
+
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="@dimen/d_16"
+            android:backgroundTint="@color/teal_200"
+            android:contentDescription="@string/favorite_button_content_description"
+            android:src="@drawable/baseline_favorite_24"
+            app:layout_constraintEnd_toStartOf="@id/btnShare"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeIngredientDescription" />
+
+        <ImageButton
+            android:id="@+id/btnShare"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="@dimen/d_16"
+            android:backgroundTint="@color/teal_200"
+            android:contentDescription="@string/share_button_content_description"
+            android:src="@drawable/baseline_share_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnFavorite"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeIngredientDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,18 +1,24 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
 }
 
 android {
     compileSdk 32
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
-        applicationId "org.nekojess.tcc"
+        applicationId "org.nekojess.nutriease"
         minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,7 +43,34 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.databinding:databinding-runtime:4.2.2'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    testImplementation "org.robolectric:robolectric:4.6.1"
+    testImplementation "io.mockk:mockk:1.12.0"
+    implementation 'me.relex:circleindicator:2.1.6'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.1'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation "com.squareup.retrofit2:retrofit:2.7.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.7.1"
+    implementation "com.squareup.okhttp3:okhttp:4.3.1"
+    implementation "com.squareup.okhttp3:mockwebserver:4.3.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.11.0"
+
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:3.1.4"
+    implementation "io.insert-koin:koin-android:3.1.4"
+
+    // Espresso dependencies
+    testImplementation  'androidx.test.espresso:espresso-core:3.1.0'
+    testImplementation  'androidx.test:runner:1.1.0'
+    testImplementation  'androidx.test:rules:1.1.0'
+
+
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/d_16"
+    android:background="@drawable/backgroud_recipe_item">
+
+    <ImageView
+        android:id="@+id/iv_recipe"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="@dimen/d_8"
+        android:layout_marginBottom="@dimen/d_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/img_recipe"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/recipe_calorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_16"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/iv_recipe"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="150 Kcal" />
+
+    <TextView
+        android:id="@+id/recipe_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_16"
+        style="@style/title2_without_bold"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@id/iv_recipe"
+        app:layout_constraintTop_toBottomOf="@id/recipe_calorie"
+        tools:text="Omelete de cenoura" />
+
+    <TextView
+        android:id="@+id/recipe_difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/d_16"
+        app:layout_constraintStart_toEndOf="@id/iv_recipe"
+        app:layout_constraintTop_toBottomOf="@id/recipe_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Diciculdade: Fácil" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

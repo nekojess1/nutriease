@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_up_nav"
+    app:startDestination="@id/createPatientPersonalDataFragment">
+    <fragment
+        android:id="@+id/createPatientPersonalDataFragment"
+        android:name="org.nekojess.nutriease.ui.createPatient.fragments.CreatePatientPersonalDataFragment"
+        android:label="CreatePatientPersonalDataFragment"
+        tools:layout="@layout/fragment_create_patient_personal_data">
+    <action
+            android:id="@+id/action_createPatientPersonalDataFragment_to_createPatientNutriInfoFragment"
+            app:destination="@id/createPatientNutriInfoFragment">
+            <argument
+                android:name="patientData"
+                app:argType=".domain.dto.PatientDto" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/createPatientNutriInfoFragment"
+        android:name="org.nekojess.nutriease.ui.createPatient.fragments.CreatePatientNutriInfoFragment"
+        android:label="CreatePatientNutriInfoFragment"
+        tools:layout="@layout/fragment_create_patient_nutri_info">
+        <argument
+            android:name="patientData"
+            app:argType="org.nekojess.nutriease.domain.dto.PatientDto" />
+    </fragment>
+</navigation>

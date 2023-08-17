@@ -1,3 +1,136 @@
 <resources>
-    <string name="app_name">tcc</string>
+    <string name="app_name">nutriease</string>
+
+    <!-- General -->
+    <string name="email">email</string>
+    <string name="phone">telefone</string>
+    <string name="name">nome</string>
+    <string name="password">senha</string>
+    <string name="confirm_password">confirmar senha</string>
+    <string name="uf">UF</string>
+    <string name="city">cidade</string>
+    <string name="continue_button">continuar</string>
+
+
+    <!-- Onboarding -->
+    <string name="onboarding_first_frame_title">Acompanhe seus pacientes</string>
+    <string name="onboarding_first_frame_description">Acompanhe o progresso dos seus pacientes de perto, fornecendo suporte contínuo e personalizado</string>
+    <string name="onboarding_second_frame_title">Crie dietas rapidamente </string>
+    <string name="onboarding_second_frame_description">Economize tempo sem comprometer a qualidade: geração de dietas eficientes e precisas em instantes</string>
+    <string name="onboarding_third_frame_title">Simples de usar</string>
+    <string name="onboarding_third_frame_button">vamos começar</string>
+
+    <!-- Login -->
+    <string name="login_activity_title">Entre na sua conta</string>
+    <string name="login_activity_or">ou</string>
+    <string name="login_activity_forgot_password">Esqueceu sua senha?</string>
+    <string name="login_activity_enter">Entrar</string>
+    <string name="login_activity_sign_up">Ainda não possui conta? Cadastre-se</string>
+
+    <!-- SignUp -->
+    <string name="sign_up_activity_personal_data">dados pessoais</string>
+    <string name="sign_up_activity_birthday">data de nascimento</string>
+    <string name="sign_up_activity_crn">CRN</string>
+    <string name="sign_up_activity_contact_information">informações de contato</string>
+    <string name="sign_up_activity_password">escolha sua senha</string>
+
+    <string-array name="states_br">
+        <item>AC</item>
+        <item>AL</item>
+        <item>AP</item>
+        <item>AM</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MT</item>
+        <item>MS</item>
+        <item>MG</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PR</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RS</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>SC</item>
+        <item>SP</item>
+        <item>SE</item>
+        <item>TO</item>
+    </string-array>
+
+    <string-array name="paf">
+        <item>sedentário</item>
+        <item>baixa atividade</item>
+        <item>ativo</item>
+        <item>muito ativo</item>
+    </string-array>
+
+    <string-array name="genre_list">
+        <item>feminino</item>
+        <item>masculino</item>
+        <item>outros</item>
+    </string-array>
+
+    <!-- Strength Password -->
+    <string name="strength_password_information">a senha deve ter:</string>
+    <string name="strength_password_condition_1">ao menos 8 caracteres</string>
+    <string name="strength_password_condition_2">no mínimo uma letra minúscula e uma maiúscula</string>
+    <string name="strength_password_condition_3">pelo menos um número</string>
+    <string name="strength_password_condition_4">pelo menos um caractere especial</string>
+    <string name="strength_password_condition_5">devem ser iguais</string>
+
+    <string name="exit">sair</string>
+    <string name="create_new_diet">Criar uma nova dieta</string>
+    <string name="start_here">comece aqui</string>
+    <string name="see_all">ver todos</string>
+    <string name="register_patient">cadastrar paciente</string>
+    <string name="register">cadastro</string>
+    <string name="patients">Pacientes</string>
+
+    <!-- ChatGPT -->
+    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com ChatGPT</string>
+    <string name="button_text_generate_recipes">Gerar receitas</string>
+    <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="textField_hint">Digite pelo menos três ingredientes:</string>
+    <string name="textField_error">A lista de ingredientes não pode ser vazia</string>
+    <string name="textField_helperText">Os ingredientes devem estar em sequência separados por virgula. \nExemplo: Ovo, leite, cenoura.</string>
+    <string name="bottom_sheet_recipe_detail_method_title">Modo de Preparo</string>
+    <string name="bottom_sheet_recipe_detail_ingredient_title">Ingredientes</string>
+    <string name="bottom_sheet_recipe_detail_protein_title">Proteina</string>
+    <string name="bottom_sheet_recipe_detail_calorie_title">Caloria</string>
+    <string name="bottom_sheet_recipe_detail_carbohydrate_title">Carboidrato</string>
+
+    <!-- Favorite Recipe -->
+    <string name="bottom_sheet_recipe_detail_favorite_button">Ainda não é possivel favoritar esta receita</string>
+
+    <!-- Share Recipe -->
+    <string name="bottom_sheet_recipe_detail_share_button">Ainda não é possivel compartilhar esta receita</string>
+
+    <!-- Home -->
+    <string name="home_activity_user_name">Olá, <b>%s</b></string>
+    <string name="profile">perfil</string>
+
+
+    <string name="change_image">trocar imagem</string>
+    <string name="nutritional_information">Informações Nutricionais</string>
+    <string name="metabolic_rate">taxa metabólica</string>
+    <string name="taf">fator atividade física</string>
+    <string name="food_preference">preferência alimentar</string>
+    <string name="food_restriction">restrinção alimentar</string>
+    <string name="target">objetivo</string>
+    <string name="height">altura</string>
+    <string name="weight">peso</string>
+    <string name="genre">gênero</string>
+    <string name="back">voltar</string>
+
+    <!-- Accessibility -->
+    <string name="favorite_button_content_description">Favoritar receita</string>
+    <string name="share_button_content_description">Compartilhar receita</string>
+
 </resources>

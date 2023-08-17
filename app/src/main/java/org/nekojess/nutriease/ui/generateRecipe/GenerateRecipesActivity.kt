@@ -7,9 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.fragment_recipe_detail_bottom_sheet.view.tvCalorieDescription
-import kotlinx.android.synthetic.main.fragment_recipe_detail_bottom_sheet.view.tvCarbohydrateDescription
-import kotlinx.android.synthetic.main.fragment_recipe_detail_bottom_sheet.view.tvProteinDescription
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityGenerateRecipesBinding
@@ -113,9 +110,9 @@ class GenerateRecipesActivity : AppCompatActivity(), RecipeClickListener {
                 listIngredient.add(it.ingredient + " - " + it.measure)
             }
             tvRecipeIngredientDescription.text = listIngredient.toString()
-            clCalories.tvCalorieDescription.text = recipeDto.calorie
-            clCalories.tvProteinDescription.text = recipeDto.protein
-            clCalories.tvCarbohydrateDescription.text = recipeDto.carbohydrate
+            tvCalorieDescription.text = recipeDto.calorie
+            tvProteinDescription.text = recipeDto.protein
+            tvCarbohydrateDescription.text = recipeDto.carbohydrate
             btnClose.setOnClickListener { dialog.dismiss() }
             btnFavorite.setOnClickListener {
                 Toast.makeText(

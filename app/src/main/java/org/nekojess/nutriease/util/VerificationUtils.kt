@@ -33,5 +33,6 @@ object VerificationUtils {
 
     private fun TextInputLayout.clearError() {
         this.error = null
+        this.isErrorEnabled = false
     }
 }

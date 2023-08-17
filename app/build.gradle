@@ -19,7 +19,6 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -50,9 +49,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'com.google.android.gms:play-services-auth:20.6.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    testImplementation "org.robolectric:robolectric:4.6.1"
+    testImplementation "io.mockk:mockk:1.12.0"
     implementation 'me.relex:circleindicator:2.1.6'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.6.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
@@ -60,5 +60,11 @@ dependencies {
     // Koin Core features
     implementation "io.insert-koin:koin-core:3.1.4"
     implementation "io.insert-koin:koin-android:3.1.4"
+
+    // Espresso dependencies
+    testImplementation  'androidx.test.espresso:espresso-core:3.1.0'
+    testImplementation  'androidx.test:runner:1.1.0'
+    testImplementation  'androidx.test:rules:1.1.0'
+
 
 }

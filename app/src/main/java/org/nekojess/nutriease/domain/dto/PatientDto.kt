@@ -2,7 +2,7 @@ package org.nekojess.nutriease.domain.dto
 
 import android.os.Parcelable
 import com.google.firebase.firestore.PropertyName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 
 @Parcelize

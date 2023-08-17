@@ -1,8 +1,8 @@
 package org.nekojess.nutriease.domain.dto
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 
 @Parcelize

@@ -21,8 +21,8 @@ class LoginViewModel(
             loginResult.onSuccess { isAuth ->
                 _loginResultLiveData.value = isAuth
             }
-            loginResult.onFailure { exception ->
-
+            loginResult.onFailure { _ ->
+                _loginResultLiveData.value = false
             }
         }
     }

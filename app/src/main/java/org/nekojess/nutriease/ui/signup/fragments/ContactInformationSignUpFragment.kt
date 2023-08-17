@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentContactInformationSignUpBinding
 import org.nekojess.nutriease.domain.dto.UserDto
 
@@ -22,8 +24,15 @@ class ContactInformationSignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         configureContinueButton()
+        setHeaderConfig()
         return binding.root
     }
+
+    private fun setHeaderConfig() {
+        binding.contactInformationSignUpFragmentHeader.setTitle(getString(R.string.register))
+        binding.contactInformationSignUpFragmentHeader.setBackButtonListener { findNavController().popBackStack() }
+    }
+
 
     private fun configureContinueButton() {
         binding.contactInformationSignUpFragmentContinueButton.setOnClickListener {

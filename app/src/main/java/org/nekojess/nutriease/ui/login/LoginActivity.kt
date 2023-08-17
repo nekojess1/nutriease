@@ -93,8 +93,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setLoginButton() {
         binding.loginActivityEnterButton.setOnClickListener {
-            setButtonEnable(false)
             if (checkValidEmail() && checkValidPassword()) {
+                setButtonEnable(false)
                 login()
             } else {
                 setButtonEnable(true)

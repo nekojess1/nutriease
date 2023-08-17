@@ -36,8 +36,8 @@ class GenerateRecipesActivity : AppCompatActivity() {
             elevatedButton.setOnClickListener {
                 if (textInput.text.isNullOrEmpty().not()) {
                     viewModel.getRecipes(mapOf("input_text" to textInput.text.toString()))
-                } else textField.error = "A lista de ingredientes não pode ser vazia" +
-                        "\nOs ingredientes devem estar em sequência separados por virgula. \nExemplo: Ovo, leite, cenoura."
+                } else textField.error =
+                    getString(R.string.textField_error).plus(getString(R.string.textField_helperText))
             }
         }
 
@@ -58,6 +58,7 @@ class GenerateRecipesActivity : AppCompatActivity() {
                 BaseModelState.STATUS.LOADING -> {
                     statusLoading()
                 }
+
                 else -> Unit
             }
         }
@@ -72,6 +73,7 @@ class GenerateRecipesActivity : AppCompatActivity() {
     private fun statusSuccess(recipesList: RecipesListDto) {
         adapter.recipes = recipesList.receitas
         binding.loading.root.visibility = View.GONE
+        binding.groupIngredient.visibility = View.GONE
         binding.recyclerView.visibility = View.VISIBLE
     }
 

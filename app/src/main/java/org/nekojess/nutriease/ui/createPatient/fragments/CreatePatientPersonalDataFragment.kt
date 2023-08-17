@@ -1,10 +1,16 @@
 package org.nekojess.nutriease.ui.createPatient.fragments
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import org.nekojess.nutriease.R
@@ -18,6 +24,13 @@ class CreatePatientPersonalDataFragment : Fragment() {
         FragmentCreatePatientPersonalDataBinding.inflate(layoutInflater)
     }
 
+    private val pickImageLauncher =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            if (uri != null) {
+                binding.createPatientFragmentUserImage.setImageURI(uri)
+            }
+        }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +39,30 @@ class CreatePatientPersonalDataFragment : Fragment() {
         setStatesList()
         setGenreList()
         setDateChangedListener()
+        setChangeImageListener()
         return binding.root
+    }
+
+    private fun setChangeImageListener() {
+        binding.createPatientFragmentChangePhoto.setOnClickListener {
+            openGallery()
+        }
+    }
+
+    private fun openGallery() {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                PERMISSION_CODE
+            )
+        } else {
+            pickImageLauncher.launch("image/*")
+        }
     }
 
     private fun setDateChangedListener() {
@@ -59,8 +95,8 @@ class CreatePatientPersonalDataFragment : Fragment() {
                 val action =
                     CreatePatientPersonalDataFragmentDirections
                         .actionCreatePatientPersonalDataFragmentToCreatePatientNutriInfoFragment(
-                        getPersonalData()
-                    )
+                            getPersonalData()
+                        )
                 Navigation.findNavController(binding.root).navigate(action)
             }
         }
@@ -76,5 +112,9 @@ class CreatePatientPersonalDataFragment : Fragment() {
             phone = binding.createPatientFragmentPhoneText.text.toString(),
             genre = binding.createPatientFragmentGenreText.text.toString()
         )
+    }
+
+    companion object {
+        private const val PERMISSION_CODE = 1000
     }
 }

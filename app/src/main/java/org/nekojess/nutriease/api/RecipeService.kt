@@ -6,7 +6,6 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface RecipeService {
-    @Headers("Content-Type: application/json")
     @POST("/generate_text")
     suspend fun getRecipes(@Body ingredient: Map<String,String>): RecipesListDto
 }

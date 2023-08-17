@@ -6,17 +6,21 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityGenerateRecipesBinding
+import org.nekojess.nutriease.databinding.RecipeDetailBottomSheetDialogBinding
+import org.nekojess.nutriease.domain.dto.RecipeDto
 import org.nekojess.nutriease.domain.dto.RecipesListDto
+import org.nekojess.nutriease.ui.generateRecipe.adapterRecipe.RecipeClickListener
 import org.nekojess.nutriease.ui.generateRecipe.adapterRecipe.RecipeListAdapter
 import org.nekojess.nutriease.util.BaseModelState
 
-class GenerateRecipesActivity : AppCompatActivity() {
+class GenerateRecipesActivity : AppCompatActivity(), RecipeClickListener {
     private val viewModel: GenerateRecipesViewModel by viewModel()
 
-    val adapter: RecipeListAdapter by lazy { RecipeListAdapter() }
+    private val adapter: RecipeListAdapter by lazy { RecipeListAdapter(this) }
     private val binding: ActivityGenerateRecipesBinding by lazy {
         ActivityGenerateRecipesBinding.inflate(
             layoutInflater
@@ -89,5 +93,24 @@ class GenerateRecipesActivity : AppCompatActivity() {
         binding.loading.root.visibility = View.VISIBLE
         binding.recyclerView.visibility = View.GONE
         binding.groupIngredient.visibility = View.GONE
+    }
+
+    override fun onRecipeClickListener(recipeDto: RecipeDto) {
+        val dialog = BottomSheetDialog(this)
+        val bindingRecipeDetail: RecipeDetailBottomSheetDialogBinding by lazy {
+            RecipeDetailBottomSheetDialogBinding.inflate(
+                layoutInflater
+            )
+        }
+        with(bindingRecipeDetail){
+            Namedareceita.text = recipeDto.nome
+            idTVCourseTracks.text = recipeDto.modo_de_preparo
+            recipeDto.ingredientesList.map {
+                idTVCourseDuration.text = it.ingrediente.plus(it.medida) + "\n"
+            }
+        }
+        dialog.setContentView(bindingRecipeDetail.root)
+        dialog.show()
+        Toast.makeText(this, recipeDto.nome, Toast.LENGTH_SHORT).show()
     }
 }

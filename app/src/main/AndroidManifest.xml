@@ -3,6 +3,7 @@
     package="org.nekojess.nutriease">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:name=".NutriEaseApplication"
         android:theme="@style/Theme.Nutriease">
+        <activity
+            android:name=".ui.generateRecipe.GenerateRecipesActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />

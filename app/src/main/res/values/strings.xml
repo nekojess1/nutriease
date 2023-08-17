@@ -93,6 +93,25 @@
     <string name="register">cadastro</string>
     <string name="patients">Pacientes</string>
 
+    <!-- ChatGPT -->
+    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com ChatGPT</string>
+    <string name="button_text_generate_recipes">Gerar receitas</string>
+    <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="textField_hint">Digite pelo menos três ingredientes:</string>
+    <string name="textField_error">A lista de ingredientes não pode ser vazia</string>
+    <string name="textField_helperText">Os ingredientes devem estar em sequência separados por virgula. \nExemplo: Ovo, leite, cenoura.</string>
+    <string name="bottom_sheet_recipe_detail_method_title">Modo de Preparo</string>
+    <string name="bottom_sheet_recipe_detail_ingredient_title">Ingredientes</string>
+    <string name="bottom_sheet_recipe_detail_protein_title">Proteina</string>
+    <string name="bottom_sheet_recipe_detail_calorie_title">Caloria</string>
+    <string name="bottom_sheet_recipe_detail_carbohydrate_title">Carboidrato</string>
+
+    <!-- Favorite Recipe -->
+    <string name="bottom_sheet_recipe_detail_favorite_button">Ainda não é possivel favoritar esta receita</string>
+
+    <!-- Share Recipe -->
+    <string name="bottom_sheet_recipe_detail_share_button">Ainda não é possivel compartilhar esta receita</string>
+
     <!-- Home -->
     <string name="home_activity_user_name">Olá, <b>%s</b></string>
     <string name="profile">perfil</string>
@@ -109,4 +128,9 @@
     <string name="weight">peso</string>
     <string name="genre">gênero</string>
     <string name="back">voltar</string>
+
+    <!-- Accessibility -->
+    <string name="favorite_button_content_description">Favoritar receita</string>
+    <string name="share_button_content_description">Compartilhar receita</string>
+
 </resources>

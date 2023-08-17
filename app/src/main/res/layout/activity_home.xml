@@ -37,9 +37,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/d_16"
                     android:layout_marginEnd="@dimen/d_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/activity_home_user_image"
-                    app:layout_constraintStart_toEndOf="@+id/activity_home_user_image"
-                    app:layout_constraintTop_toTopOf="@+id/activity_home_user_image"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_home_user_image"
+                    app:layout_constraintStart_toEndOf="@id/activity_home_user_image"
+                    app:layout_constraintTop_toTopOf="@id/activity_home_user_image"
                     tools:text="Olá, Jess" />
 
                 <TextView
@@ -51,9 +51,9 @@
                     android:layout_marginTop="@dimen/d_24"
                     android:text="@string/patients"
                     android:textAlignment="viewStart"
-                    app:layout_constraintEnd_toStartOf="@+id/activity_home_patient_see_more_btn"
+                    app:layout_constraintEnd_toStartOf="@id/activity_home_patient_see_more_btn"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_diet_card" />
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_diet_card" />
 
                 <TextView
                     android:id="@+id/activity_home_patient_see_more_btn"
@@ -62,9 +62,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/d_24"
                     android:text="@string/see_all"
-                    app:layout_constraintBottom_toBottomOf="@+id/activity_home_patient_title"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_home_patient_title"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/activity_home_patient_title" />
+                    app:layout_constraintTop_toTopOf="@id/activity_home_patient_title" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/activity_home_patient_diet_card"
@@ -77,7 +77,7 @@
                     app:cardElevation="@dimen/d_8"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/activity_home_user_image">
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_user_image">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                             android:textAlignment="viewStart"
                             android:textColor="@color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/login_activity_create_diet"
+                            app:layout_constraintEnd_toStartOf="@id/login_activity_create_diet"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,7 +125,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_title" />
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_title" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/activity_home_register_patient"
@@ -138,7 +138,20 @@
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_list" />
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_list" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/activity_home_generate_recipes"
+                    style="@style/buttonSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
+                    android:text="@string/button_text_generate_recipes"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_register_patient" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

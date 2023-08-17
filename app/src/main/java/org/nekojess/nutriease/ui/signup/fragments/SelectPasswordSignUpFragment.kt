@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentSelectPasswordSignUpBinding
 import org.nekojess.nutriease.domain.dto.LoginDto
 import org.nekojess.nutriease.ui.home.HomeActivity
@@ -32,7 +34,13 @@ class SelectPasswordSignUpFragment : Fragment() {
     ): View {
         configureFinishButton()
         configPasswordStrength()
+        setHeaderConfig()
         return binding.root
+    }
+
+    private fun setHeaderConfig() {
+        binding.contactInformationSignUpFragmentHeader.setTitle(getString(R.string.register))
+        binding.contactInformationSignUpFragmentHeader.setBackButtonListener { findNavController().popBackStack() }
     }
 
     private fun configureFinishButton() {

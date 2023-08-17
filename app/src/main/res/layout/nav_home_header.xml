@@ -12,7 +12,7 @@
         android:layout_width="@dimen/d_48"
         android:layout_height="@dimen/d_48"
         android:src="@drawable/jess_image"
-        app:civ_border_color="@color/pink_app"
+        app:civ_border_color="@color/blue_app"
         app:civ_border_width="@dimen/d_2" />
 
     <TextView

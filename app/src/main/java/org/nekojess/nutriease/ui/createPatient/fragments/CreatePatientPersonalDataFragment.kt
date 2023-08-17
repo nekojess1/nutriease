@@ -40,6 +40,7 @@ class CreatePatientPersonalDataFragment : Fragment() {
         setGenreList()
         setDateChangedListener()
         setChangeImageListener()
+        setHeaderConfig()
         return binding.root
     }
 
@@ -63,6 +64,11 @@ class CreatePatientPersonalDataFragment : Fragment() {
         } else {
             pickImageLauncher.launch("image/*")
         }
+    }
+
+    private fun setHeaderConfig() {
+        binding.createPatientPersonalDataFragmentHeader.setTitle(getString(R.string.register_patient))
+        binding.createPatientPersonalDataFragmentHeader.setBackButtonListener { requireActivity().finish() }
     }
 
     private fun setDateChangedListener() {

@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.signup.fragments.ContactInformationSignUpFragment">
 
+    <org.nekojess.nutriease.ui.components.Header
+        android:id="@+id/contact_information_sign_up_fragment_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
         android:id="@+id/contact_information_sign_up_fragment_title"
         style="@style/title2"
@@ -17,7 +25,7 @@
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_information_sign_up_fragment_header" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/contact_information_sign_up_fragment_email"

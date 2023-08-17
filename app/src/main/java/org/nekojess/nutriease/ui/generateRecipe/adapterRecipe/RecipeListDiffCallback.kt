@@ -9,7 +9,7 @@ class RecipeListDiffCallback(
 ) : DiffUtil.Callback() {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition].nome == newList[newItemPosition].nome
+        return oldList[oldItemPosition].nameRecipe == newList[newItemPosition].nameRecipe
     }
 
     override fun getOldListSize(): Int {

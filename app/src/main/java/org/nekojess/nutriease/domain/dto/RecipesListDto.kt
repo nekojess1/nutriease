@@ -6,5 +6,5 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RecipesListDto (
-    @SerializedName("receitas") val receitas: List<RecipeDto>
+    @SerializedName("recipes") val recipes: List<RecipeDto>
 ): Parcelable

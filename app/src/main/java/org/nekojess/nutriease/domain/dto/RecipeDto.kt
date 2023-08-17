@@ -6,15 +6,17 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RecipeDto (
-    @SerializedName("nome") val nome: String,
-    @SerializedName("ingredientes") val ingredientesList: List<Ingredient>,
-    @SerializedName("modo_de_preparo") val modo_de_preparo: String,
-    @SerializedName("dificuldade") val dificuldade:String,
-    @SerializedName("caloria") val caloria: String
+    @SerializedName("name_recipe") val nameRecipe: String,
+    @SerializedName("ingredients_list") val ingredientsList: List<Ingredient>,
+    @SerializedName("method") val method: String,
+    @SerializedName("difficulty") val difficulty:String,
+    @SerializedName("calorie") val calorie: String,
+    @SerializedName("protein") val protein: String,
+    @SerializedName("carbohydrate") val carbohydrate: String
 ): Parcelable{
     @Parcelize
     data class Ingredient(
-        @SerializedName("ingrediente") val ingrediente: String,
-        @SerializedName("medida") val medida: String
+        @SerializedName("ingredient") val ingredient: String,
+        @SerializedName("measure") val measure: String
     ):Parcelable
 }

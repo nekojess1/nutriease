@@ -7,10 +7,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.fragment_recipe_detail_bottom_sheet.view.tvCalorieDescription
+import kotlinx.android.synthetic.main.fragment_recipe_detail_bottom_sheet.view.tvCarbohydrateDescription
+import kotlinx.android.synthetic.main.fragment_recipe_detail_bottom_sheet.view.tvProteinDescription
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityGenerateRecipesBinding
-import org.nekojess.nutriease.databinding.RecipeDetailBottomSheetDialogBinding
+import org.nekojess.nutriease.databinding.FragmentRecipeDetailBottomSheetBinding
 import org.nekojess.nutriease.domain.dto.RecipeDto
 import org.nekojess.nutriease.domain.dto.RecipesListDto
 import org.nekojess.nutriease.ui.generateRecipe.adapterRecipe.RecipeClickListener
@@ -75,7 +78,7 @@ class GenerateRecipesActivity : AppCompatActivity(), RecipeClickListener {
     }
 
     private fun statusSuccess(recipesList: RecipesListDto) {
-        adapter.recipes = recipesList.receitas
+        adapter.recipes = recipesList.recipes
         binding.loading.root.visibility = View.GONE
         binding.groupIngredient.visibility = View.GONE
         binding.recyclerView.visibility = View.VISIBLE
@@ -97,20 +100,38 @@ class GenerateRecipesActivity : AppCompatActivity(), RecipeClickListener {
 
     override fun onRecipeClickListener(recipeDto: RecipeDto) {
         val dialog = BottomSheetDialog(this)
-        val bindingRecipeDetail: RecipeDetailBottomSheetDialogBinding by lazy {
-            RecipeDetailBottomSheetDialogBinding.inflate(
+        val bindingRecipeDetail: FragmentRecipeDetailBottomSheetBinding by lazy {
+            FragmentRecipeDetailBottomSheetBinding.inflate(
                 layoutInflater
             )
         }
-        with(bindingRecipeDetail){
-            Namedareceita.text = recipeDto.nome
-            idTVCourseTracks.text = recipeDto.modo_de_preparo
-            recipeDto.ingredientesList.map {
-                idTVCourseDuration.text = it.ingrediente.plus(it.medida) + "\n"
+        with(bindingRecipeDetail) {
+            tvRecipeName.text = recipeDto.nameRecipe
+            tvRecipeMethodDescription.text = recipeDto.method
+            var listIngredient = mutableListOf<String>()
+            recipeDto.ingredientsList.map {
+                listIngredient.add(it.ingredient + " - " + it.measure)
             }
+            tvRecipeIngredientDescription.text = listIngredient.toString()
+            clCalories.tvCalorieDescription.text = recipeDto.calorie
+            clCalories.tvProteinDescription.text = recipeDto.protein
+            clCalories.tvCarbohydrateDescription.text = recipeDto.carbohydrate
+            btnClose.setOnClickListener { dialog.dismiss() }
+            btnFavorite.setOnClickListener {
+                Toast.makeText(
+                   this@GenerateRecipesActivity,
+                    getString(R.string.bottom_sheet_recipe_detail_favorite_button),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            btnShare.setOnClickListener { Toast.makeText(
+                this@GenerateRecipesActivity,
+                getString(R.string.bottom_sheet_recipe_detail_share_button),
+                Toast.LENGTH_SHORT
+            ).show() }
         }
+
         dialog.setContentView(bindingRecipeDetail.root)
         dialog.show()
-        Toast.makeText(this, recipeDto.nome, Toast.LENGTH_SHORT).show()
     }
 }

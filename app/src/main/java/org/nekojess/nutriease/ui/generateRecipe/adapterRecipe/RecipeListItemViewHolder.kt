@@ -10,9 +10,9 @@ class RecipeListItemViewHolder(
 
     fun bind(recipeDto: RecipeDto) {
         with(itemBinding){
-            recipeName.text = recipeDto.nome
-            recipeCalorie.text = recipeDto.caloria
-            recipeDifficulty.text = recipeDto.dificuldade
+            recipeName.text = recipeDto.nameRecipe
+            recipeCalorie.text = recipeDto.calorie
+            recipeDifficulty.text = recipeDto.difficulty
         }
     }
 }

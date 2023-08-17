@@ -13,6 +13,7 @@
   - [Firebase](#firebase)
   - [Integração com o GPT](#integração-com-o-gpt)
   - [Retrofit](#retrofit)
+  - [Testes unitários com espresso](#testes-unitários-com-espresso)
 
 
 - [Contato](#contato)
@@ -114,6 +115,9 @@ O Nutriease oferece integração com o GPT para geração de conteúdo textual p
 
 O projeto utiliza o Retrofit para realizar chamadas de API.
 
+### `Testes Unitários com Espresso`
+
+O Nutriease adota testes unitários para garantir a qualidade e o funcionamento correto do aplicativo. O framework Espresso é amplamente utilizado para escrever testes de interface do usuário em projetos Android. Os testes de Espresso permitem simular interações do usuário e verificar se a interface do aplicativo está respondendo conforme o esperado.
 
 ## Contato
 

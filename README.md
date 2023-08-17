@@ -76,6 +76,7 @@ Antes de começar, certifique-se de ter os seguintes requisitos instalados em se
             .build()
     }
     ```
+#### :warning: trocar de http para https na URL da API 
 
 11. Pressione o botão "Run" (ou Shift + F10) para compilar e executar o aplicativo.
 

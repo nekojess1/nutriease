@@ -3,130 +3,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.signup.fragments.PersonalDataSignUpFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/personal_data_sign_up_fragment_title"
-        style="@style/title2"
+    <org.nekojess.nutriease.ui.components.Header
+        android:id="@+id/personal_data_sign_up_fragment_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/d_24"
-        android:layout_marginTop="@dimen/d_48"
-        android:text="@string/sign_up_activity_personal_data"
-        android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personal_data_sign_up_fragment_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/d_24"
-        android:layout_marginTop="@dimen/d_48"
-        android:hint="@string/name"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_title">
+        android:layout_height="@dimen/d_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_header">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personal_data_sign_up_fragment_name_text"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            tools:context=".ui.signup.fragments.SelectPasswordSignUpFragment">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/personal_data_sign_up_fragment_title"
+                style="@style/title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_48"
+                android:text="@string/sign_up_activity_personal_data"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personal_data_sign_up_fragment_birthday"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/d_24"
-        android:layout_marginTop="@dimen/d_24"
-        android:hint="@string/sign_up_activity_birthday"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_name">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/personal_data_sign_up_fragment_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_48"
+                android:hint="@string/name"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_title">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personal_data_sign_up_fragment_birthday_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="10"
-            android:inputType="date" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/personal_data_sign_up_fragment_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personal_data_sign_up_fragment_crn"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/d_24"
-        android:layout_marginTop="@dimen/d_24"
-        android:hint="@string/sign_up_activity_crn"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_birthday">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/personal_data_sign_up_fragment_birthday"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/sign_up_activity_birthday"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_name">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personal_data_sign_up_fragment_crn_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/personal_data_sign_up_fragment_birthday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:maxLength="10" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personal_data_sign_up_fragment_uf"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/d_24"
-        android:layout_marginTop="@dimen/d_24"
-        android:hint="@string/uf"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/personal_data_sign_up_fragment_city"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_crn">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/personal_data_sign_up_fragment_crn"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/sign_up_activity_crn"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_birthday">
 
-        <AutoCompleteTextView
-            android:id="@+id/personal_data_sign_up_fragment_uf_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/personal_data_sign_up_fragment_crn_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personal_data_sign_up_fragment_city"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/d_16"
-        android:layout_marginTop="@dimen/d_24"
-        android:layout_marginEnd="@dimen/d_24"
-        android:hint="@string/city"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/personal_data_sign_up_fragment_uf"
-        app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_crn">
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personal_data_sign_up_fragment_city_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/personal_data_sign_up_fragment_uf"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_24"
+                android:hint="@string/uf"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/personal_data_sign_up_fragment_city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_crn">
 
+                <AutoCompleteTextView
+                    android:id="@+id/personal_data_sign_up_fragment_uf_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/personal_data_sign_up_fragment_continue_button"
-        style="@style/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/d_24"
-        android:layout_marginBottom="@dimen/d_48"
-        android:text="@string/continue_button"
-        app:layout_constraintBottom_toBottomOf="parent" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/personal_data_sign_up_fragment_city"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d_16"
+                android:layout_marginTop="@dimen/d_24"
+                android:layout_marginEnd="@dimen/d_24"
+                android:hint="@string/city"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/personal_data_sign_up_fragment_uf"
+                app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_crn">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/personal_data_sign_up_fragment_city_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/personal_data_sign_up_fragment_continue_button"
+                style="@style/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/d_24"
+                android:layout_marginTop="@dimen/d_48"
+                android:layout_marginBottom="@dimen/d_48"
+                android:text="@string/continue_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/personal_data_sign_up_fragment_city" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

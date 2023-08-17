@@ -24,9 +24,14 @@ class PersonalDataSignUpFragment : Fragment() {
         configureContinueButton()
         setStatesList()
         setDateChangedListener()
+        setHeaderConfig()
         return binding.root
     }
 
+    private fun setHeaderConfig() {
+        binding.personalDataSignUpFragmentHeader.setTitle(getString(R.string.register))
+        binding.personalDataSignUpFragmentHeader.setBackButtonListener { requireActivity().finish() }
+    }
     private fun setDateChangedListener() {
         binding.personalDataSignUpFragmentBirthdayText.addTextChangedListener(DateTextWatcher())
     }

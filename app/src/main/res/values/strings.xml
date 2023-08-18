@@ -94,7 +94,7 @@
     <string name="patients">Pacientes</string>
 
     <!-- ChatGPT -->
-    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com ChatGPT</string>
+    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com o GPT</string>
     <string name="button_text_generate_recipes">Gerar receitas</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
     <string name="textField_hint">Digite pelo menos três ingredientes:</string>
@@ -133,5 +133,6 @@
     <!-- Accessibility -->
     <string name="favorite_button_content_description">Favoritar receita</string>
     <string name="share_button_content_description">Compartilhar receita</string>
+    <string name="generate_recipes_loading">Gerando receitas atraves do GPT</string>
 
 </resources>

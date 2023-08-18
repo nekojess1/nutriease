@@ -15,8 +15,11 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_home_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                tools:visibility="visible">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/activity_home_user_image"
@@ -154,10 +157,19 @@
                     app:layout_constraintTop_toBottomOf="@id/activity_home_register_patient" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <include layout="@layout/activity_home_shimmer"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"

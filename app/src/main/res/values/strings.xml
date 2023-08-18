@@ -105,6 +105,7 @@
     <string name="bottom_sheet_recipe_detail_protein_title">Proteina</string>
     <string name="bottom_sheet_recipe_detail_calorie_title">Caloria</string>
     <string name="bottom_sheet_recipe_detail_carbohydrate_title">Carboidrato</string>
+    <string name="recipe">receitas</string>
 
     <!-- Favorite Recipe -->
     <string name="bottom_sheet_recipe_detail_favorite_button">Ainda não é possivel favoritar esta receita</string>

@@ -51,9 +51,9 @@
             android:id="@+id/clCalories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/d_8"
             android:background="@drawable/rectangle_recipe_detail"
             android:orientation="horizontal"
+            android:padding="@dimen/d_8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRecipeName">
@@ -63,8 +63,8 @@
                 style="@style/title3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d_4"
                 android:layout_marginStart="@dimen/d_8"
+                android:layout_marginTop="@dimen/d_4"
                 android:text="@string/bottom_sheet_recipe_detail_calorie_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -86,11 +86,11 @@
                 style="@style/title3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d_4"
                 android:layout_marginStart="@dimen/d_4"
+                android:layout_marginTop="@dimen/d_4"
                 android:layout_marginEnd="@dimen/d_4"
-                app:layout_constraintEnd_toStartOf="@id/tvProteinTitle"
                 android:text="@string/bottom_sheet_recipe_detail_carbohydrate_title"
+                app:layout_constraintEnd_toStartOf="@id/tvProteinTitle"
                 app:layout_constraintStart_toEndOf="@id/tvCalorieTitle"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,8 +113,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d_4"
                 android:layout_marginEnd="@dimen/d_8"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/bottom_sheet_recipe_detail_protein_title"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

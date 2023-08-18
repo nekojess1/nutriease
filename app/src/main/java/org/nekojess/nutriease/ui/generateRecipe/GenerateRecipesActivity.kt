@@ -33,6 +33,12 @@ class GenerateRecipesActivity : AppCompatActivity(), RecipeClickListener {
         setAdapter()
         setObservable()
         setGenerateRecipesButtonClick()
+        setHeaderConfig()
+    }
+
+    private fun setHeaderConfig() {
+        binding.generateRecipesHeader.setTitle(getString(R.string.recipe))
+        binding.generateRecipesHeader.setBackButtonListener { finish() }
     }
 
     private fun setGenerateRecipesButtonClick() {

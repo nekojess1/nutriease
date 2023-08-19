@@ -134,5 +134,6 @@
     <string name="favorite_button_content_description">Favoritar receita</string>
     <string name="share_button_content_description">Compartilhar receita</string>
     <string name="generate_recipes_loading">Gerando receitas atraves do GPT</string>
+    <string name="empty_patients_message">A lista de pacientes está vazia no momento. Adicione novos pacientes para começar a oferecer cuidados nutricionais</string>
 
 </resources>

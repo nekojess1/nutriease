@@ -125,7 +125,16 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setPatientList(data: HomeDto) {
-        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+        if(data.patients.isEmpty()){
+            setPatientListVisibilityConfig(true)
+        } else {
+            binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+            setPatientListVisibilityConfig(false)
+        }
     }
 
+    private fun setPatientListVisibilityConfig(isVisible: Boolean) {
+        binding.activityHomeEmptyClient.isVisible = isVisible
+        binding.activityHomePatientList.isVisible = !isVisible
+    }
 }

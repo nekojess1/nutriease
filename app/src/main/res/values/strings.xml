@@ -94,7 +94,7 @@
     <string name="patients">Pacientes</string>
 
     <!-- ChatGPT -->
-    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com ChatGPT</string>
+    <string name="button_text_generate_recipes_with_GPT">Gerar receitas com o GPT</string>
     <string name="button_text_generate_recipes">Gerar receitas</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
     <string name="textField_hint">Digite pelo menos três ingredientes:</string>
@@ -105,6 +105,7 @@
     <string name="bottom_sheet_recipe_detail_protein_title">Proteina</string>
     <string name="bottom_sheet_recipe_detail_calorie_title">Caloria</string>
     <string name="bottom_sheet_recipe_detail_carbohydrate_title">Carboidrato</string>
+    <string name="recipe">receitas</string>
 
     <!-- Favorite Recipe -->
     <string name="bottom_sheet_recipe_detail_favorite_button">Ainda não é possivel favoritar esta receita</string>
@@ -132,5 +133,7 @@
     <!-- Accessibility -->
     <string name="favorite_button_content_description">Favoritar receita</string>
     <string name="share_button_content_description">Compartilhar receita</string>
+    <string name="generate_recipes_loading">Gerando receitas atraves do GPT</string>
+    <string name="empty_patients_message">A lista de pacientes está vazia no momento. Adicione novos pacientes para começar a oferecer cuidados nutricionais</string>
 
 </resources>

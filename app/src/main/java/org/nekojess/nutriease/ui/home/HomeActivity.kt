@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.ActivityHomeBinding
@@ -96,10 +97,23 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setViewModel() {
+        startLoading()
         viewModel.getUserData()
         viewModel.userLiveData.observe(this) { data ->
+            binding.activityHomeContainer.isVisible = true
             setUserData(data)
+            stopLoading()
         }
+    }
+
+    private fun stopLoading() {
+        binding.shimmerLayout.stopShimmer()
+        binding.shimmerLayout.isVisible = false
+    }
+
+    private fun startLoading() {
+        binding.shimmerLayout.startShimmer()
+        binding.shimmerLayout.isVisible = true
     }
 
     private fun setUserData(data: HomeDto) {
@@ -111,7 +125,16 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setPatientList(data: HomeDto) {
-        binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+        if(data.patients.isEmpty()){
+            setPatientListVisibilityConfig(true)
+        } else {
+            binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+            setPatientListVisibilityConfig(false)
+        }
     }
 
+    private fun setPatientListVisibilityConfig(isVisible: Boolean) {
+        binding.activityHomeEmptyClient.isVisible = isVisible
+        binding.activityHomePatientList.isVisible = !isVisible
+    }
 }

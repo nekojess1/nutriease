@@ -12,11 +12,15 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_home_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                tools:visibility="visible">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/activity_home_user_image"
@@ -42,30 +46,6 @@
                     app:layout_constraintTop_toTopOf="@id/activity_home_user_image"
                     tools:text="Olá, Jess" />
 
-                <TextView
-                    android:id="@+id/activity_home_patient_title"
-                    style="@style/title2"
-                    android:layout_width="@dimen/d_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/d_24"
-                    android:layout_marginTop="@dimen/d_24"
-                    android:text="@string/patients"
-                    android:textAlignment="viewStart"
-                    app:layout_constraintEnd_toStartOf="@id/activity_home_patient_see_more_btn"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_diet_card" />
-
-                <TextView
-                    android:id="@+id/activity_home_patient_see_more_btn"
-                    style="@style/buttonText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/d_24"
-                    android:text="@string/see_all"
-                    app:layout_constraintBottom_toBottomOf="@id/activity_home_patient_title"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/activity_home_patient_title" />
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/activity_home_patient_diet_card"
                     android:layout_width="@dimen/d_0"
@@ -82,7 +62,6 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:paddingVertical="@dimen/d_24">
 
                         <TextView
@@ -116,16 +95,74 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <TextView
+                    android:id="@+id/activity_home_patient_title"
+                    style="@style/title2"
+                    android:layout_width="@dimen/d_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
+                    android:text="@string/patients"
+                    android:textAlignment="viewStart"
+                    app:layout_constraintEnd_toStartOf="@id/activity_home_patient_see_more_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_diet_card" />
+
+                <TextView
+                    android:id="@+id/activity_home_patient_see_more_btn"
+                    style="@style/buttonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/d_24"
+                    android:text="@string/see_all"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_home_patient_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/activity_home_patient_title" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/activity_home_patient_list"
                     android:layout_width="@dimen/d_0"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d_16"
                     android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/d_24"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_home_register_patient"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/activity_home_patient_title" />
+
+                <LinearLayout
+                    android:id="@+id/activity_home_empty_client"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_16"
+                    android:layout_marginBottom="@dimen/d_24"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_home_register_patient"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_title"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginHorizontal="@dimen/d_24"
+                        android:src="@drawable/client" />
+
+                    <TextView
+                        android:id="@+id/s"
+                        style="@style/description2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d_24"
+                        android:layout_marginTop="@dimen/d_8"
+                        android:text="@string/empty_patients_message" />
+
+                </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/activity_home_register_patient"
@@ -133,31 +170,75 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/d_24"
-                    android:layout_marginTop="@dimen/d_24"
+                    android:layout_marginBottom="@dimen/d_24"
                     android:text="@string/register_patient"
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_list" />
+                    app:layout_constraintBottom_toTopOf="@+id/activity_home_generate_recipes"/>
 
-                <com.google.android.material.button.MaterialButton
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/activity_home_generate_recipes"
-                    style="@style/buttonSmall"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/d_0"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/d_24"
                     android:layout_marginTop="@dimen/d_24"
-                    android:text="@string/button_text_generate_recipes"
-                    android:textAllCaps="false"
+                    android:layout_marginBottom="@dimen/d_24"
+                    android:backgroundTint="@color/mostard"
+                    app:cardCornerRadius="@dimen/d_16"
+                    app:cardElevation="@dimen/d_8"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity_home_register_patient" />
+                    app:strokeColor="@color/black_50">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            style="@style/title3"
+                            android:layout_width="@dimen/d_0"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/d_24"
+                            android:text="@string/button_text_generate_recipes"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:layout_marginVertical="@dimen/d_8"
+                            android:src="@drawable/food"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textView2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        android:visibility="gone">
+
+        <include layout="@layout/activity_home_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"

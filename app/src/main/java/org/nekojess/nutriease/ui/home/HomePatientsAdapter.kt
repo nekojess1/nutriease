@@ -1,8 +1,10 @@
 package org.nekojess.nutriease.ui.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import org.nekojess.nutriease.databinding.ItemHomePatientBinding
 import org.nekojess.nutriease.domain.dto.PatientDto
 
@@ -11,13 +13,20 @@ class HomePatientsAdapter(private var data: List<PatientDto>) :
 
     inner class ViewHolder(binding: ItemHomePatientBinding) : RecyclerView.ViewHolder(binding.root) {
         private val tvName = binding.itemPageTitle
+        private val userPhoto = binding.adapterHomePatientImage
 
         fun bind(data: PatientDto) {
-            setTexts(data)
+            setTexts(itemView.context, data)
         }
 
-        private fun setTexts(data: PatientDto) {
+        private fun setTexts(context: Context, data: PatientDto) {
             tvName.text = data.name
+            if(data.userImage.isNotEmpty()){
+                Glide.with(context)
+                    .load(data.userImage)
+                    .into(userPhoto)
+            }
+
         }
     }
 

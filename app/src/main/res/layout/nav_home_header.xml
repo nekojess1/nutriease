@@ -11,7 +11,7 @@
         android:id="@+id/nav_header_user_image"
         android:layout_width="@dimen/d_48"
         android:layout_height="@dimen/d_48"
-        android:src="@drawable/jess_image"
+        android:src="@drawable/user_image_default"
         app:civ_border_color="@color/blue_app"
         app:civ_border_width="@dimen/d_2" />
 

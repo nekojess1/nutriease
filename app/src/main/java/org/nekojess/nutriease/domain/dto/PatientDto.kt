@@ -57,6 +57,10 @@ data class PatientDto (
 
     @get:PropertyName("foodPreference")
     @set:PropertyName("food foodPreference")
-    var foodPreference: String = EMPTY_STRING
+    var foodPreference: String = EMPTY_STRING,
+
+    @get:PropertyName("userImage")
+    @set:PropertyName("userImage")
+    var userImage: String = EMPTY_STRING
 ): Parcelable
 

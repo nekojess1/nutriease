@@ -28,7 +28,7 @@
                     android:layout_height="@dimen/d_48"
                     android:layout_marginStart="@dimen/d_24"
                     android:layout_marginTop="@dimen/d_24"
-                    android:src="@drawable/jess_image"
+                    android:src="@drawable/user_image_default"
                     app:civ_border_color="@color/blue_app"
                     app:civ_border_width="@dimen/d_2"
                     app:layout_constraintStart_toStartOf="parent"
@@ -142,6 +142,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/activity_home_register_patient"
                     android:orientation="vertical"
                     android:visibility="gone"
+                    android:importantForAccessibility="yes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_title"
@@ -150,6 +151,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
+                        android:importantForAccessibility="no"
                         android:layout_marginHorizontal="@dimen/d_24"
                         android:src="@drawable/client" />
 
@@ -215,6 +217,7 @@
                             android:layout_height="80dp"
                             android:layout_marginVertical="@dimen/d_8"
                             android:src="@drawable/food"
+                            android:importantForAccessibility="no"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/textView2"

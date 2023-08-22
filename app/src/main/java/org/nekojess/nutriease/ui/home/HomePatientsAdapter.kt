@@ -19,7 +19,7 @@ class HomePatientsAdapter(private var data: List<PatientDto>) :
 
     inner class ViewHolder(binding: ItemHomePatientBinding) : RecyclerView.ViewHolder(binding.root) {
         private val nameTextView = binding.adapterHomePatientName
-        private val userPhoto = binding.adapterHomePatientImage
+        private val patientPhoto = binding.adapterHomePatientImage
         private val container = binding.adapterHomePatientContainer
 
         fun bind(patientData: PatientDto) {
@@ -35,10 +35,10 @@ class HomePatientsAdapter(private var data: List<PatientDto>) :
         }
 
         private fun setUserImage(patientData: PatientDto, context: Context) {
-            if (patientData.userImage.isNotEmpty()) {
+            if (patientData.patientPhoto.isNotEmpty()) {
                 Glide.with(context)
-                    .load(patientData.userImage)
-                    .into(userPhoto)
+                    .load(patientData.patientPhoto)
+                    .into(patientPhoto)
             }
         }
     }

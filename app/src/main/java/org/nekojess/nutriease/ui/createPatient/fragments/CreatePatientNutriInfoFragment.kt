@@ -73,7 +73,7 @@ class CreatePatientNutriInfoFragment : Fragment() {
             target = binding.createPatientFragmentTargetText.text.toString(),
             foodRestriction = binding.createPatientFragmentFoodRestrictionText.text.toString(),
             foodPreference = binding.createPatientFragmentFoodPreferenceText.text.toString(),
-            userImage = patientData.userImage
+            patientPhoto = patientData.patientPhoto
         )
     }
 

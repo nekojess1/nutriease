@@ -143,7 +143,7 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
     }
 
     override fun onPatientClick(patient: PatientDto) {
-        val bottomSheetFragment = PatientProfileBottomSheet()
+        val bottomSheetFragment = PatientProfileBottomSheet(patient)
         bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
     }
 }

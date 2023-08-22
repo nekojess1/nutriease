@@ -121,7 +121,7 @@ class CreatePatientPersonalDataFragment : Fragment() {
             email = binding.createPatientFragmentEmailText.text.toString(),
             phone = binding.createPatientFragmentPhoneText.text.toString(),
             genre = binding.createPatientFragmentGenreText.text.toString(),
-            userImage = userImage?.toString() ?: EMPTY_STRING
+            patientPhoto = userImage?.toString() ?: EMPTY_STRING
         )
     }
 

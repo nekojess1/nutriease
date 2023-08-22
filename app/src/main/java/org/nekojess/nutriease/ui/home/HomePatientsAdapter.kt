@@ -11,22 +11,35 @@ import org.nekojess.nutriease.domain.dto.PatientDto
 class HomePatientsAdapter(private var data: List<PatientDto>) :
     RecyclerView.Adapter<HomePatientsAdapter.ViewHolder>() {
 
-    inner class ViewHolder(binding: ItemHomePatientBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val tvName = binding.itemPageTitle
-        private val userPhoto = binding.adapterHomePatientImage
+    private var patientClickListener: PatientClickListener? = null
 
-        fun bind(data: PatientDto) {
-            setTexts(itemView.context, data)
+    fun setPatientClickListener(listener: PatientClickListener) {
+        patientClickListener = listener
+    }
+
+    inner class ViewHolder(binding: ItemHomePatientBinding) : RecyclerView.ViewHolder(binding.root) {
+        private val nameTextView = binding.adapterHomePatientName
+        private val userPhoto = binding.adapterHomePatientImage
+        private val container = binding.adapterHomePatientContainer
+
+        fun bind(patientData: PatientDto) {
+            setTexts(patientData)
+            setUserImage(patientData, itemView.context)
+            container.setOnClickListener {
+                patientClickListener?.onPatientClick(patientData)
+            }
         }
 
-        private fun setTexts(context: Context, data: PatientDto) {
-            tvName.text = data.name
-            if(data.userImage.isNotEmpty()){
+        private fun setTexts(patientData: PatientDto) {
+            nameTextView.text = patientData.name
+        }
+
+        private fun setUserImage(patientData: PatientDto, context: Context) {
+            if (patientData.userImage.isNotEmpty()) {
                 Glide.with(context)
-                    .load(data.userImage)
+                    .load(patientData.userImage)
                     .into(userPhoto)
             }
-
         }
     }
 
@@ -48,6 +61,10 @@ class HomePatientsAdapter(private var data: List<PatientDto>) :
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    interface PatientClickListener {
+        fun onPatientClick(patient: PatientDto)
     }
 
 }

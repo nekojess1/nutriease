@@ -14,10 +14,12 @@ import org.nekojess.nutriease.ui.login.LoginActivity
 import org.nekojess.nutriease.util.StringUtils.toHtml
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.domain.dto.HomeDto
+import org.nekojess.nutriease.domain.dto.PatientDto
+import org.nekojess.nutriease.ui.components.PatientProfileBottomSheet
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 import org.nekojess.nutriease.ui.generateRecipe.GenerateRecipesActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListener {
 
     private val binding: ActivityHomeBinding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
@@ -128,7 +130,9 @@ class HomeActivity : AppCompatActivity() {
         if(data.patients.isEmpty()){
             setPatientListVisibilityConfig(true)
         } else {
-            binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+            val adapter = HomePatientsAdapter(data.patients)
+            adapter.setPatientClickListener(this)
+            binding.activityHomePatientList.adapter = adapter
             setPatientListVisibilityConfig(false)
         }
     }
@@ -136,5 +140,10 @@ class HomeActivity : AppCompatActivity() {
     private fun setPatientListVisibilityConfig(isVisible: Boolean) {
         binding.activityHomeEmptyClient.isVisible = isVisible
         binding.activityHomePatientList.isVisible = !isVisible
+    }
+
+    override fun onPatientClick(patient: PatientDto) {
+        val bottomSheetFragment = PatientProfileBottomSheet()
+        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
     }
 }

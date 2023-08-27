@@ -1,86 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_background"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/d_24">
 
-    <LinearLayout
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/d_24"
+        android:background="@null"
+        android:src="@drawable/close_black_ic" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/patient_profile_photo"
+        android:layout_width="@dimen/d_120"
+        android:layout_height="@dimen/d_120"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d_24"
+        android:src="@drawable/user_image_default"
+        app:civ_border_color="@color/blue_app"
+        app:civ_border_width="@dimen/d_2" />
+
+    <TextView
+        android:id="@+id/patient_profile_name"
+        style="@style/title2_without_bold"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/d_24"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d_16"
+        tools:text="Jéssica Alves" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/patient_profile_photo"
-            android:layout_width="@dimen/d_120"
-            android:layout_height="@dimen/d_120"
-            android:layout_marginTop="@dimen/d_16"
-            app:civ_border_color="@color/blue_app"
-            app:civ_border_width="@dimen/d_2"
-            android:src="@drawable/user_image_default"/>
-        <TextView
-            android:id="@+id/patient_profile_name"
-            style="@style/title2_without_bold"
-            android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/patient_profile_location"
+        style="@style/description2_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Recife - Pernambuco" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/patient_profile_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d_24"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/blue_app"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/blue_app"
+        app:tabTextColor="@color/black_50">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d_24"
-            android:text="Jéssica Alves" />
+            android:text="Informações Pessoais" />
 
-        <TextView
-            android:id="@+id/patient_profile_location"
-            style="@style/description"
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d_8"
-            android:text="Recife - Pernambuco" />
+            android:text="Informações Nutricionais" />
 
-        <TextView
-            style="@style/title2_without_bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d_16"
-            android:text="@string/target"
-            android:textAlignment="viewStart" />
+    </com.google.android.material.tabs.TabLayout>
 
-        <TextView
-            android:id="@+id/patient_profile_target"
-            style="@style/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d_16"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam sem, mattis vitae risus in, tristique lacinia eros."
-            android:textAlignment="viewStart" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/patient_profile_tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/blue_app"
-            app:tabSelectedTextColor="@color/blue_app"
-            app:tabTextColor="@color/black_50"
-            android:layout_marginTop="@dimen/d_24"
-            app:tabGravity="fill"
-            app:tabMode="fixed">
+    <Button
+        style="@style/buttonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="acessar dieta" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Informações Pessoais" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Informações Nutricionais" />
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+    <Button
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="editar perfil" />
+</LinearLayout>

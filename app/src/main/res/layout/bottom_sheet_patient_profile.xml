@@ -50,34 +50,10 @@
         app:tabIndicatorColor="@color/blue_app"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/blue_app"
-        app:tabTextColor="@color/black_50">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Informações Pessoais" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Informações Nutricionais" />
-
-    </com.google.android.material.tabs.TabLayout>
+        app:tabTextColor="@color/black_50"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <Button
-        style="@style/buttonOutline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="acessar dieta" />
-
-    <Button
-        style="@style/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="editar perfil" />
 </LinearLayout>

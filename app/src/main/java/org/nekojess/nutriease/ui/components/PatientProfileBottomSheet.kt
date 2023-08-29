@@ -1,18 +1,16 @@
 package org.nekojess.nutriease.ui.components
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.BottomSheetPatientProfileBinding
 import org.nekojess.nutriease.domain.dto.PatientDto
+import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 
 class PatientProfileBottomSheet(private val patientData: PatientDto) : BottomSheetDialogFragment() {
 
@@ -26,14 +24,14 @@ class PatientProfileBottomSheet(private val patientData: PatientDto) : BottomShe
     ): View {
         setText()
         setUserImage()
-        val adapter = PatientProfileAdapter(requireActivity())
+        val adapter = PatientProfileAdapter(requireActivity(), patientData)
         binding.viewPager.adapter = adapter
 
         TabLayoutMediator(binding.patientProfileTabLayout, binding.viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "Informações Pessoais"
-                1 -> "Informações Nutricionais"
-                else -> ""
+                0 -> getString(R.string.personal_info)
+                1 -> getString(R.string.nutritional_info)
+                else -> EMPTY_STRING
             }
         }.attach()
         return binding.root

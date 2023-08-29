@@ -61,6 +61,6 @@ data class PatientDto (
 
     @get:PropertyName("userImage")
     @set:PropertyName("userImage")
-    var userImage: String = EMPTY_STRING
+    var patientPhoto: String = EMPTY_STRING
 ): Parcelable
 

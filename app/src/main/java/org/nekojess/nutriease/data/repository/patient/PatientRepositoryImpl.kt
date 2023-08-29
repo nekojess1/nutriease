@@ -32,9 +32,9 @@ class PatientRepositoryImpl : PatientRepository {
         return withContext(Dispatchers.IO) {
             try {
                 val userId = auth.currentUser?.uid ?: StringUtils.EMPTY_STRING
-                if (patientDto.userImage.isNotEmpty()) {
-                    val imageDownloadUrl = uploadImageAndGetUrl(patientDto.userImage.toUri())
-                    patientDto.userImage = imageDownloadUrl
+                if (patientDto.patientPhoto.isNotEmpty()) {
+                    val imageDownloadUrl = uploadImageAndGetUrl(patientDto.patientPhoto.toUri())
+                    patientDto.patientPhoto = imageDownloadUrl
                 }
                 fireStore.collection(USER_COLLECTION)
                     .document(userId)

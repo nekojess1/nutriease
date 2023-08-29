@@ -47,6 +47,13 @@
         <item name="android:textSize">@dimen/dt_16</item>
     </style>
 
+    <style name="description2_black">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black_70</item>
+        <item name="android:textSize">@dimen/dt_16</item>
+    </style>
+
     <style name="headerTitle">
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
@@ -105,4 +112,15 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_background</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
 </resources>

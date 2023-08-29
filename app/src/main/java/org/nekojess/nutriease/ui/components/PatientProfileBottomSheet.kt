@@ -24,6 +24,18 @@ class PatientProfileBottomSheet(private val patientData: PatientDto) : BottomShe
     ): View {
         setText()
         setUserImage()
+        setTabLayout()
+        setCloseIcon()
+        return binding.root
+    }
+
+    private fun setCloseIcon() {
+        binding.patientProfileCloseIcon.setOnClickListener {
+            this.dismiss()
+        }
+    }
+
+    private fun setTabLayout() {
         val adapter = PatientProfileAdapter(requireActivity(), patientData)
         binding.viewPager.adapter = adapter
 
@@ -34,7 +46,6 @@ class PatientProfileBottomSheet(private val patientData: PatientDto) : BottomShe
                 else -> EMPTY_STRING
             }
         }.attach()
-        return binding.root
     }
 
     override fun getTheme(): Int = R.style.BottomSheetDialogTheme

@@ -119,72 +119,55 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/activity_home_patient_title" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/activity_home_patient_list"
-                    android:layout_width="@dimen/d_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d_16"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/d_24"
-                    app:layout_constraintBottom_toTopOf="@+id/activity_home_register_patient"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_title" />
-
                 <LinearLayout
-                    android:id="@+id/activity_home_empty_client"
-                    android:layout_width="0dp"
+                    android:id="@+id/activity_home_patient_list_container"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/d_24"
-                    android:layout_marginTop="@dimen/d_16"
-                    android:layout_marginBottom="@dimen/d_24"
-                    app:layout_constraintBottom_toTopOf="@+id/activity_home_register_patient"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:importantForAccessibility="yes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_title"
-                    tools:visibility="visible">
+                    android:layout_marginTop="@dimen/d_16"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/activity_home_patient_title">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:importantForAccessibility="no"
-                        android:layout_marginHorizontal="@dimen/d_24"
-                        android:src="@drawable/client" />
-
-                    <TextView
-                        android:id="@+id/s"
-                        style="@style/description2"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/activity_home_patient_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/d_24"
-                        android:layout_marginTop="@dimen/d_8"
-                        android:text="@string/empty_patients_message" />
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toTopOf="@+id/activity_home_register_patient"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/activity_home_patient_title" />
+
+                    <include
+                        android:id="@+id/activity_home_empty_client"
+                        layout="@layout/empty_patient_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/d_24"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
 
                 </LinearLayout>
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/activity_home_register_patient"
                     style="@style/buttonOutline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/d_24"
-                    android:layout_marginBottom="@dimen/d_24"
+                    android:layout_marginTop="@dimen/d_24"
                     android:text="@string/register_patient"
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/activity_home_generate_recipes"/>
+                    app:layout_constraintTop_toBottomOf="@+id/activity_home_patient_list_container"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/activity_home_generate_recipes"
                     android:layout_width="@dimen/d_0"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/d_24"
-                    android:layout_marginTop="@dimen/d_24"
                     android:layout_marginBottom="@dimen/d_24"
                     android:backgroundTint="@color/mostard"
                     app:cardCornerRadius="@dimen/d_16"
@@ -192,6 +175,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_home_register_patient"
                     app:strokeColor="@color/black_50">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -216,8 +200,8 @@
                             android:layout_width="0dp"
                             android:layout_height="80dp"
                             android:layout_marginVertical="@dimen/d_8"
-                            android:src="@drawable/food"
                             android:importantForAccessibility="no"
+                            android:src="@drawable/food"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/textView2"

@@ -149,7 +149,7 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
     }
 
     private fun setPatientListVisibilityConfig(isVisible: Boolean) {
-        binding.activityHomeEmptyClient.isVisible = isVisible
+        binding.activityHomeEmptyClient.emptyClientContainer.isVisible = isVisible
         binding.activityHomePatientList.isVisible = !isVisible
     }
 

@@ -142,7 +142,8 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
         if(data.patients.isEmpty()){
             setPatientListVisibilityConfig(true)
         } else {
-            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, 6))
+            val sublistSize = minOf(6, data.patients.size)
+            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, sublistSize))
             adapter.setPatientClickListener(this)
             binding.activityHomePatientList.adapter = adapter
             setPatientListVisibilityConfig(false)

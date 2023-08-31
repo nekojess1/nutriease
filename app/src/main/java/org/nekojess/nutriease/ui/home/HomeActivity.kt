@@ -132,7 +132,7 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
     private fun setUserData(data: HomeDto) {
         binding.activityHomeUserName.text =
             getString(R.string.home_activity_user_name, data.user?.name).toHtml()
-        binding.navigationView.findViewById<TextView>(R.id.nav_header_user_name).text =
+        binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_user_name).text =
             data.user?.name
         patientList = data.patients
         setPatientList(data)

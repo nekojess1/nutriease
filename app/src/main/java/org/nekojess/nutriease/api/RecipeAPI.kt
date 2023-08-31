@@ -60,7 +60,7 @@ private fun hasNetwork(context: Context): Boolean? {
 
 fun retrofit(
     okHttpClient: OkHttpClient,
-    url: String = "https://1e06-35-247-107-31.ngrok.io"
+    url: String = "https://0cc7-34-83-143-60.ngrok.io"
 ): Retrofit {
     return Retrofit.Builder()
         .baseUrl(url)

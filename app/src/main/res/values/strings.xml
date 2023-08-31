@@ -140,4 +140,7 @@
     <string name="patient_profile_locality">%1$s-%2$s</string>
     <string name="personal_info">Informações Pessoais</string>
     <string name="nutritional_info">Informações Nutricionais</string>
+    <string name="search_by_name">Buscar por nome</string>
+    <string name="patients_list">lista de pacientes</string>
+    <string name="add_patient">adicionar paciente</string>
 </resources>

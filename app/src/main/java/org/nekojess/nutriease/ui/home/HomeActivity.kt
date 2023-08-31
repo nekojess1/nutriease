@@ -18,8 +18,12 @@ import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.ui.components.PatientProfileBottomSheet
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 import org.nekojess.nutriease.ui.generateRecipe.GenerateRecipesActivity
+import org.nekojess.nutriease.ui.patientList.PatientListActivity
+import org.nekojess.nutriease.util.PatientListUtil.sortByName
 
 class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListener {
+
+    private var patientList: List<PatientDto> = emptyList()
 
     private val binding: ActivityHomeBinding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
@@ -39,6 +43,13 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
         configLateralMenu()
         setRegisterUserButton()
         setGenerateRecipesButton()
+        configSeeMorePatientsButton()
+    }
+
+    private fun configSeeMorePatientsButton() {
+        binding.activityHomePatientSeeMoreBtn.setOnClickListener {
+            startActivity(PatientListActivity.newInstance(this, patientList))
+        }
     }
 
     override fun onResume() {
@@ -121,8 +132,9 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
     private fun setUserData(data: HomeDto) {
         binding.activityHomeUserName.text =
             getString(R.string.home_activity_user_name, data.user?.name).toHtml()
-        binding.navigationView.findViewById<TextView>(R.id.nav_header_user_name).text =
+        binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_user_name).text =
             data.user?.name
+        patientList = data.patients
         setPatientList(data)
     }
 
@@ -130,7 +142,7 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
         if(data.patients.isEmpty()){
             setPatientListVisibilityConfig(true)
         } else {
-            val adapter = HomePatientsAdapter(data.patients)
+            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, 6))
             adapter.setPatientClickListener(this)
             binding.activityHomePatientList.adapter = adapter
             setPatientListVisibilityConfig(false)
@@ -138,7 +150,7 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
     }
 
     private fun setPatientListVisibilityConfig(isVisible: Boolean) {
-        binding.activityHomeEmptyClient.isVisible = isVisible
+        binding.activityHomeEmptyClient.emptyClientContainer.isVisible = isVisible
         binding.activityHomePatientList.isVisible = !isVisible
     }
 

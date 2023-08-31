@@ -11,6 +11,7 @@ import org.nekojess.nutriease.databinding.ActivityPatientListBinding
 import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.ui.components.PatientProfileBottomSheet
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
+import org.nekojess.nutriease.util.PatientListUtil.sortByName
 
 class PatientListActivity : AppCompatActivity(), PatientListAdapter.PatientClickListener {
 
@@ -20,6 +21,7 @@ class PatientListActivity : AppCompatActivity(), PatientListAdapter.PatientClick
 
     private var patientList: List<PatientDto> = emptyList()
 
+    private val adapter = PatientListAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initPatientList()
@@ -34,22 +36,20 @@ class PatientListActivity : AppCompatActivity(), PatientListAdapter.PatientClick
     }
 
     private fun configPatientList() {
-        val adapter = PatientListAdapter()
+        adapter.patientList = patientList.sortByName()
         adapter.setPatientClickListener(this)
-        adapter.updateList(patientList)
         binding.patientListActivityRecyclerView.adapter = adapter
-        setNameFilter(adapter)
-
+        setNameFilter()
     }
 
-    private fun setNameFilter(adapter: PatientListAdapter) {
+    private fun setNameFilter() {
         binding.patientListActivityNameText.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     val filteredPatientList =
                         patientList.filter { it.name.contains(s.toString(), ignoreCase = true) }
-                    adapter.updateList(filteredPatientList)
+                    adapter.patientList = filteredPatientList.sortByName()
                 }
                 override fun afterTextChanged(s: Editable?) {}
             }

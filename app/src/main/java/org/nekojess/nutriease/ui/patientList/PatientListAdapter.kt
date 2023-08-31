@@ -3,6 +3,7 @@ package org.nekojess.nutriease.ui.patientList
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.nekojess.nutriease.R
@@ -14,13 +15,14 @@ class PatientListAdapter :
 
     private var patientClickListener: PatientClickListener? = null
 
-    private var patientList: MutableList<PatientDto> = mutableListOf()
-
-    fun updateList(newList: List<PatientDto>) {
-        patientList.clear()
-        patientList.addAll(newList)
-        notifyDataSetChanged()
-    }
+    private var _patientList: MutableList<PatientDto> = mutableListOf()
+     var patientList: List<PatientDto>
+        get() = _patientList
+        set(value) {
+            _patientList.clear()
+            _patientList.addAll(value)
+            notifyDataSetChanged()
+        }
 
     fun setPatientClickListener(listener: PatientClickListener) {
         patientClickListener = listener
@@ -54,6 +56,13 @@ class PatientListAdapter :
                 Glide.with(context)
                     .load(patientData.patientPhoto)
                     .into(patientPhoto)
+            } else {
+                patientPhoto.setImageDrawable(
+                    AppCompatResources.getDrawable(
+                        itemView.context,
+                        R.drawable.user_image_default
+                    )
+                )
             }
         }
     }
@@ -71,12 +80,10 @@ class PatientListAdapter :
     }
 
     override fun onBindViewHolder(holder: PatientListAdapter.ViewHolder, position: Int) {
-        holder.bind(patientList[position])
+        holder.bind(_patientList[position])
     }
 
-    override fun getItemCount(): Int {
-        return patientList.size
-    }
+    override fun getItemCount() = _patientList.size
 
     interface PatientClickListener {
         fun onPatientClick(patient: PatientDto)

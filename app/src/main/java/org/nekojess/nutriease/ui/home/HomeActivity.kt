@@ -19,6 +19,7 @@ import org.nekojess.nutriease.ui.components.PatientProfileBottomSheet
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 import org.nekojess.nutriease.ui.generateRecipe.GenerateRecipesActivity
 import org.nekojess.nutriease.ui.patientList.PatientListActivity
+import org.nekojess.nutriease.util.PatientListUtil.sortByName
 
 class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListener {
 
@@ -141,7 +142,7 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
         if(data.patients.isEmpty()){
             setPatientListVisibilityConfig(true)
         } else {
-            val adapter = HomePatientsAdapter(data.patients)
+            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, 6))
             adapter.setPatientClickListener(this)
             binding.activityHomePatientList.adapter = adapter
             setPatientListVisibilityConfig(false)

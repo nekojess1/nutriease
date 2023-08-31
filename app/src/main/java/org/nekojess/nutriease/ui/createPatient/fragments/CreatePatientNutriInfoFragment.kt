@@ -78,7 +78,7 @@ class CreatePatientNutriInfoFragment : Fragment() {
     }
 
     private fun setPafList() {
-        val ufs = resources.getStringArray(R.array.paf)
+        val ufs = resources.getStringArray(R.array.physical_activity)
         val adapter = ArrayAdapter(
             requireContext(),
             R.layout.simple_list_item,

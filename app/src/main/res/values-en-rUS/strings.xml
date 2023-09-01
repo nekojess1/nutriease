@@ -119,4 +119,7 @@
     <string name="search_by_name">Search by name</string>
     <string name="patients_list">patient list</string>
     <string name="add_patient">add patient</string>
+
+    <string name="settings">settings</string>
+
 </resources>

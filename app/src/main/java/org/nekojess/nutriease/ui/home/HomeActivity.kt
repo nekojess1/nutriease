@@ -16,6 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.domain.dto.HomeDto
 import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.ui.components.PatientProfileBottomSheet
+import org.nekojess.nutriease.ui.configuration.ConfigurationActivity
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 import org.nekojess.nutriease.ui.generateRecipe.GenerateRecipesActivity
 import org.nekojess.nutriease.ui.patientList.PatientListActivity
@@ -84,6 +85,9 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
                     viewModel.signOutUser()
                     openLogin()
                 }
+                R.id.settings -> {
+                    startActivity(Intent(this, ConfigurationActivity::class.java))
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
@@ -142,7 +146,8 @@ class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListen
         if(data.patients.isEmpty()){
             setPatientListVisibilityConfig(true)
         } else {
-            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, 6))
+            val sublistSize = minOf(6, data.patients.size)
+            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, sublistSize))
             adapter.setPatientClickListener(this)
             binding.activityHomePatientList.adapter = adapter
             setPatientListVisibilityConfig(false)

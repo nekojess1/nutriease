@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentRecipeDetailBottomSheetBinding
 
 class RecipeDetailBottomSheet : BottomSheetDialogFragment() {
     private val binding: FragmentRecipeDetailBottomSheetBinding by lazy {
         FragmentRecipeDetailBottomSheetBinding.inflate(layoutInflater)
     }
+
+    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

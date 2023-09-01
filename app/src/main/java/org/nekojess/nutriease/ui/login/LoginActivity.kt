@@ -122,9 +122,10 @@ class LoginActivity : AppCompatActivity() {
             R.layout.simple_list_item,
             genreList
         )
-        binding.changeLanguageText.setAdapter(adapter)
-        binding.changeLanguageText.setOnItemClickListener { adapterView, view, i, l ->
-            if (i == 0) selectLanguage("en")
+        val configuration = resources.configuration
+        binding.switchMaterial.isChecked = configuration.locale.language == "en"
+        binding.switchMaterial.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (isChecked) selectLanguage("en")
             else selectLanguage("pt")
         }
     }

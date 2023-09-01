@@ -149,4 +149,6 @@
     <string name="search_by_name">Buscar por nome</string>
     <string name="patients_list">lista de pacientes</string>
     <string name="add_patient">adicionar paciente</string>
+
+    <string name="settings">configurações</string>
 </resources>

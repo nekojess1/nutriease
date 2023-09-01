@@ -10,6 +10,32 @@
         android:layout_height="match_parent"
         tools:context=".ui.login.LoginActivity">
 
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/usa_flag"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/brazil_flag"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/brazil_flag"
+            app:layout_constraintBottom_toBottomOf="@+id/switchMaterial"
+            app:layout_constraintEnd_toStartOf="@+id/switchMaterial"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/usa_flag"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/usa_flag"
+            app:layout_constraintBottom_toBottomOf="@+id/switchMaterial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/login_activity_title"
             style="@style/title"
@@ -98,9 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/d_24"
             android:layout_marginTop="@dimen/d_48"
-            android:layout_marginBottom="@dimen/d_64"
             android:text="@string/onboarding_third_frame_button"
-            app:layout_constraintBottom_toTopOf="@id/login_activity_sign_up_button"
             app:layout_constraintTop_toBottomOf="@id/login_activity_forgot_password" />
 
         <TextView
@@ -110,31 +134,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/d_24"
             android:layout_marginTop="@dimen/d_48"
-            android:layout_marginBottom="@dimen/d_64"
+            android:layout_marginBottom="@dimen/d_24"
             android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/login_activity_enter_button"
             android:text="@string/login_activity_sign_up"
-            app:layout_constraintBottom_toTopOf="@id/change_language"
-            app:layout_constraintTop_toBottomOf="@id/login_activity_sign_up_button" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/change_language"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d_24"
-            android:layout_marginHorizontal="@dimen/d_24"
-            android:hint="@string/choose_language"
-            android:layout_marginBottom="@dimen/d_64"
-            app:boxBackgroundColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/login_activity_sign_up_button"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <AutoCompleteTextView
-                android:id="@+id/change_language_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

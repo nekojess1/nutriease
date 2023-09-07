@@ -1,13 +1,17 @@
 package org.nekojess.nutriease.data.repository.patient
 
+import android.net.Uri
+import androidx.core.net.toUri
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import org.nekojess.nutriease.domain.dto.PatientDto
+import org.nekojess.nutriease.util.ImageUtils.generateUniqueImageName
 import org.nekojess.nutriease.util.StringUtils
 
 class PatientRepositoryImpl : PatientRepository {
@@ -20,19 +24,43 @@ class PatientRepositoryImpl : PatientRepository {
         Firebase.firestore
     }
 
+    private val storage: FirebaseStorage by lazy {
+        FirebaseStorage.getInstance()
+    }
+
     override suspend fun savePatientData(patientDto: PatientDto): Result<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
                 val userId = auth.currentUser?.uid ?: StringUtils.EMPTY_STRING
+                if (patientDto.patientPhoto.isNotEmpty()) {
+                    val imageDownloadUrl = uploadImageAndGetUrl(patientDto.patientPhoto.toUri())
+                    patientDto.patientPhoto = imageDownloadUrl
+                }
                 fireStore.collection(USER_COLLECTION)
                     .document(userId)
                     .collection(PATIENTS_COLLECTION)
                     .add(patientDto).await()
+
                 Result.success(true)
             } catch (e: Exception) {
                 Result.failure(e)
             }
         }
+    }
+
+    private suspend fun uploadImageAndGetUrl(imageUri: Uri): String {
+        val imageName = generateUniqueImageName()
+        val storageRef = storage.reference.child("patients/$imageName.jpg")
+
+        val uploadTask = storageRef.putFile(imageUri)
+        val imageDownloadUrl = uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let { throw it }
+            }
+            storageRef.downloadUrl
+        }.await()
+
+        return imageDownloadUrl.toString()
     }
 
     override suspend fun getPatientList(): Result<List<PatientDto>> {

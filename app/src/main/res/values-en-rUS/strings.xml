@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">nutriease</string>
+
+    <!-- General -->
+    <string name="email">email</string>
+    <string name="phone">phone number</string>
+    <string name="name">name</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="uf">UF</string>
+    <string name="city">city</string>
+    <string name="continue_button">continue</string>
+
+
+    <!-- Onboarding -->
+    <string name="onboarding_first_frame_title">Track your patients</string>
+    <string name="onboarding_first_frame_description">Follow your patients progress closely, providing ongoing, personalized support</string>
+    <string name="onboarding_second_frame_title">Create diets quickly</string>
+    <string name="onboarding_second_frame_description">Save time without compromising quality: generating efficient and accurate diets in moments</string>
+    <string name="onboarding_third_frame_title">Simple to use</string>
+    <string name="onboarding_third_frame_button">Let\'s start</string>
+
+    <!-- Login -->
+    <string name="login_activity_title">Login to your account</string>
+    <string name="login_activity_with_google">Log in with Google</string>
+    <string name="login_activity_or">or</string>
+    <string name="login_activity_forgot_password">Forgot your password?</string>
+    <string name="login_activity_enter">Login</string>
+    <string name="login_activity_sign_up">Don\'t have an account yet? Register</string>
+    <string name="choose_language">Do you want to change the default language?</string>
+
+    <string-array name="language_list">
+        <item>english-US</item>
+        <item>portuguese-BR</item>
+    </string-array>
+
+    <!-- SignUp -->
+    <string name="sign_up_activity_personal_data">personal data</string>
+    <string name="sign_up_activity_birthday">date of birth</string>
+    <string name="sign_up_activity_crn">CRN</string>
+    <string name="sign_up_activity_contact_information">contact information</string>
+    <string name="sign_up_activity_password">choose your password</string>
+
+    <!-- Strength Password -->
+    <string name="strength_password_information">the password must have:</string>
+    <string name="strength_password_condition_1">at least 8 characters</string>
+    <string name="strength_password_condition_2">at least one lowercase and one uppercase letter</string>
+    <string name="strength_password_condition_3">at least one number</string>
+    <string name="strength_password_condition_4">at least one special character</string>
+    <string name="strength_password_condition_5">must be equal</string>
+
+    <!-- Home -->
+    <string name="home_activity_user_name">Hello, <b>%s</b></string>
+    <string name="profile">profile</string>
+    <string name="exit">exit</string>
+    <string name="create_new_diet">Create new diet</string>
+    <string name="start_here">start here</string>
+    <string name="see_all">see all</string>
+    <string name="register_patient">register patient</string>
+    <string name="register">register</string>
+    <string name="patients">Patients</string>
+
+    <!-- ChatGPT -->
+    <string name="button_text_generate_recipes_with_GPT">Generate recipe with GPT</string>
+    <string name="button_text_generate_recipes">Generate recipe</string>
+    <string name="error">An error has occurred. Try again.</string>
+    <string name="textField_hint">Enter at least three ingredients:</string>
+    <string name="textField_error">Ingredient list cannot be empty</string>
+    <string name="textField_helperText">The ingredients must be in sequence separated by a comma. \nExample: egg, milk, carrot.</string>
+    <string name="generate_recipes_loading">Generating recipe with GPT</string>
+    <string name="bottom_sheet_recipe_detail_method_title">Method of preparation</string>
+    <string name="bottom_sheet_recipe_detail_ingredient_title">Ingredients</string>
+    <string name="bottom_sheet_recipe_detail_protein_title">Protein</string>
+    <string name="bottom_sheet_recipe_detail_calorie_title">Calorie</string>
+    <string name="bottom_sheet_recipe_detail_carbohydrate_title">Carbohydrate</string>
+    <string name="recipe">recipe</string>
+
+    <!-- Favorite Recipe -->
+    <string name="bottom_sheet_recipe_detail_favorite_button">Can\'t favorite this recipe yet</string>
+
+    <!-- Share Recipe -->
+    <string name="bottom_sheet_recipe_detail_share_button">Can\'t share this recipe yet</string>
+
+    <!-- Register Patient -->
+    <string name="change_image">change image</string>
+    <string name="nutritional_information">Nutritional Information</string>
+    <string name="metabolic_rate">metabolic rate</string>
+    <string name="paf">physical activity factor</string>
+    <string name="food_preference">food preference</string>
+    <string name="food_restriction">food restriction</string>
+    <string name="target">goal</string>
+    <string name="height">height(cm)</string>
+    <string name="weight">weight(kg)</string>
+    <string name="genre">genre</string>
+    <string name="back">go back</string>
+
+    <string-array name="genre_list">
+        <item>female</item>
+        <item>male</item>
+        <item>other</item>
+    </string-array>
+
+    <string-array name="physical_activity">
+        <item>sedentary</item>
+        <item>low activity</item>
+        <item>active</item>
+        <item>very active</item>
+    </string-array>
+
+    <!-- Accessibility -->
+    <string name="favorite_button_content_description">Favorite recipe</string>
+    <string name="share_button_content_description">Share recipe</string>
+
+    <!-- Patient List -->
+    <string name="empty_patients_message">The patient list is currently empty. Add new patients to start offering nutritional care</string>
+    <string name="patient_profile_locality">%1$s-%2$s</string>
+    <string name="personal_info">Personal Information</string>
+    <string name="nutritional_info">Nutritional Information</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="patients_list">patient list</string>
+    <string name="add_patient">add patient</string>
+
+    <string name="settings">settings</string>
+
+</resources>

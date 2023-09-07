@@ -3,6 +3,7 @@ package org.nekojess.nutriease.ui.login
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ import org.nekojess.nutriease.ui.signup.SignUpActivity
 import org.nekojess.nutriease.util.StringUtils.hashPassword
 import org.nekojess.nutriease.util.VerificationUtils.isValidEmail
 import org.nekojess.nutriease.util.VerificationUtils.isNotEmptyText
+import java.util.Locale
 
 
 class LoginActivity : AppCompatActivity() {
@@ -47,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
             setLoginButton()
             setSignUpButton()
             setLoginWithGoogle()
+            setChooseLanguage()
         }
     }
 
@@ -110,6 +113,29 @@ class LoginActivity : AppCompatActivity() {
         binding.loginActivitySignUpButton.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
+    }
+
+    private fun setChooseLanguage() {
+        val genreList = resources.getStringArray(R.array.language_list)
+        val adapter = ArrayAdapter(
+            this,
+            R.layout.simple_list_item,
+            genreList
+        )
+        val configuration = resources.configuration
+        binding.switchMaterial.isChecked = configuration.locale.language == "en"
+        binding.switchMaterial.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (isChecked) selectLanguage("en")
+            else selectLanguage("pt")
+        }
+    }
+
+    private fun selectLanguage (language: String){
+        val locale = Locale(language)
+        val configuration = resources.configuration
+        configuration.locale = locale
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+        recreate()
     }
 
     private fun checkValidEmail() = binding.loginActivityEmail.isValidEmail()

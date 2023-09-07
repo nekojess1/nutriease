@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.patientList.PatientListActivity">
+
+    <org.nekojess.nutriease.ui.components.Header
+        android:id="@+id/patient_list_activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/patient_list_activity_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_24"
+        android:hint="@string/search_by_name"
+        app:boxBackgroundColor="@color/white"
+        app:startIconDrawable="@drawable/ic_search"
+        app:endIconMode="clear_text"
+        app:layout_constraintTop_toBottomOf="@+id/patient_list_activity_header">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/patient_list_activity_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/patient_list_activity_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_0"
+        android:layout_marginTop="@dimen/d_24"
+        android:layout_marginBottom="@dimen/d_24"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/patient_list_activity_add_patient_button"
+        app:layout_constraintTop_toBottomOf="@+id/patient_list_activity_name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/patient_list_activity_add_patient_button"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:layout_marginBottom="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_48"
+        android:text="@string/add_patient"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

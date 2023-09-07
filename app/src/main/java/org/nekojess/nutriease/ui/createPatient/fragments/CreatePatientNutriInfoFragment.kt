@@ -72,12 +72,13 @@ class CreatePatientNutriInfoFragment : Fragment() {
             height = binding.createPatientFragmentHeightText.text.toString(),
             target = binding.createPatientFragmentTargetText.text.toString(),
             foodRestriction = binding.createPatientFragmentFoodRestrictionText.text.toString(),
-            foodPreference = binding.createPatientFragmentFoodPreferenceText.text.toString()
+            foodPreference = binding.createPatientFragmentFoodPreferenceText.text.toString(),
+            patientPhoto = patientData.patientPhoto
         )
     }
 
     private fun setPafList() {
-        val ufs = resources.getStringArray(R.array.paf)
+        val ufs = resources.getStringArray(R.array.physical_activity)
         val adapter = ArrayAdapter(
             requireContext(),
             R.layout.simple_list_item,

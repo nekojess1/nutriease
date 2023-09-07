@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:importantForAccessibility="no"
-            android:src="@drawable/close_ic"
+            android:src="@drawable/close_red_ic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/black" />

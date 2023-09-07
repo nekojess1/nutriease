@@ -17,6 +17,7 @@ import org.nekojess.nutriease.R
 import org.nekojess.nutriease.databinding.FragmentCreatePatientPersonalDataBinding
 import org.nekojess.nutriease.domain.dto.PatientDto
 import org.nekojess.nutriease.util.DateTextWatcher
+import org.nekojess.nutriease.util.StringUtils.EMPTY_STRING
 import org.nekojess.nutriease.util.VerificationUtils.isNotEmptyText
 
 class CreatePatientPersonalDataFragment : Fragment() {
@@ -24,10 +25,13 @@ class CreatePatientPersonalDataFragment : Fragment() {
         FragmentCreatePatientPersonalDataBinding.inflate(layoutInflater)
     }
 
+    private var userImage : Uri? = null
+
     private val pickImageLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             if (uri != null) {
                 binding.createPatientFragmentUserImage.setImageURI(uri)
+                userImage = uri
             }
         }
 
@@ -116,7 +120,8 @@ class CreatePatientPersonalDataFragment : Fragment() {
             city = binding.createPatientFragmentCityText.text.toString(),
             email = binding.createPatientFragmentEmailText.text.toString(),
             phone = binding.createPatientFragmentPhoneText.text.toString(),
-            genre = binding.createPatientFragmentGenreText.text.toString()
+            genre = binding.createPatientFragmentGenreText.text.toString(),
+            patientPhoto = userImage?.toString() ?: EMPTY_STRING
         )
     }
 

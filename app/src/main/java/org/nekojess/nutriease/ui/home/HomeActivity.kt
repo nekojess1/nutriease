@@ -14,10 +14,17 @@ import org.nekojess.nutriease.ui.login.LoginActivity
 import org.nekojess.nutriease.util.StringUtils.toHtml
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nekojess.nutriease.domain.dto.HomeDto
+import org.nekojess.nutriease.domain.dto.PatientDto
+import org.nekojess.nutriease.ui.components.PatientProfileBottomSheet
+import org.nekojess.nutriease.ui.configuration.ConfigurationActivity
 import org.nekojess.nutriease.ui.createPatient.CreatePatientActivity
 import org.nekojess.nutriease.ui.generateRecipe.GenerateRecipesActivity
+import org.nekojess.nutriease.ui.patientList.PatientListActivity
+import org.nekojess.nutriease.util.PatientListUtil.sortByName
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomePatientsAdapter.PatientClickListener {
+
+    private var patientList: List<PatientDto> = emptyList()
 
     private val binding: ActivityHomeBinding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
@@ -37,6 +44,13 @@ class HomeActivity : AppCompatActivity() {
         configLateralMenu()
         setRegisterUserButton()
         setGenerateRecipesButton()
+        configSeeMorePatientsButton()
+    }
+
+    private fun configSeeMorePatientsButton() {
+        binding.activityHomePatientSeeMoreBtn.setOnClickListener {
+            startActivity(PatientListActivity.newInstance(this, patientList))
+        }
     }
 
     override fun onResume() {
@@ -70,6 +84,9 @@ class HomeActivity : AppCompatActivity() {
                 R.id.exit -> {
                     viewModel.signOutUser()
                     openLogin()
+                }
+                R.id.settings -> {
+                    startActivity(Intent(this, ConfigurationActivity::class.java))
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -119,8 +136,9 @@ class HomeActivity : AppCompatActivity() {
     private fun setUserData(data: HomeDto) {
         binding.activityHomeUserName.text =
             getString(R.string.home_activity_user_name, data.user?.name).toHtml()
-        binding.navigationView.findViewById<TextView>(R.id.nav_header_user_name).text =
+        binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_user_name).text =
             data.user?.name
+        patientList = data.patients
         setPatientList(data)
     }
 
@@ -128,13 +146,21 @@ class HomeActivity : AppCompatActivity() {
         if(data.patients.isEmpty()){
             setPatientListVisibilityConfig(true)
         } else {
-            binding.activityHomePatientList.adapter = HomePatientsAdapter(data.patients)
+            val sublistSize = minOf(6, data.patients.size)
+            val adapter = HomePatientsAdapter(data.patients.sortByName().subList(0, sublistSize))
+            adapter.setPatientClickListener(this)
+            binding.activityHomePatientList.adapter = adapter
             setPatientListVisibilityConfig(false)
         }
     }
 
     private fun setPatientListVisibilityConfig(isVisible: Boolean) {
-        binding.activityHomeEmptyClient.isVisible = isVisible
+        binding.activityHomeEmptyClient.emptyClientContainer.isVisible = isVisible
         binding.activityHomePatientList.isVisible = !isVisible
+    }
+
+    override fun onPatientClick(patient: PatientDto) {
+        val bottomSheetFragment = PatientProfileBottomSheet(patient)
+        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/empty_client_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:importantForAccessibility="yes"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="@dimen/d_24"
+        android:importantForAccessibility="no"
+        android:src="@drawable/client" />
+
+    <TextView
+        android:id="@+id/s"
+        style="@style/description2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_24"
+        android:layout_marginTop="@dimen/d_8"
+        android:text="@string/empty_patients_message" />
+
+</LinearLayout>

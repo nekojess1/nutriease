@@ -41,6 +41,6 @@ class StrengthPassword @JvmOverloads constructor(
         return password.any { specialChars.contains(it) }
     }
     private fun getImageResource(condition: Boolean): Int =
-        if (condition) R.drawable.done_icon else R.drawable.close_ic
+        if (condition) R.drawable.done_icon else R.drawable.close_red_ic
 
 }
